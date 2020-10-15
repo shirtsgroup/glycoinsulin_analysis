@@ -1,0 +1,68 @@
+# This file was created Thu Oct  1 20:14:51 2020
+# Created by:
+#                  :-) GROMACS - gmx rmsf, 2020.2-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/wei-tse/Documents/Glycoengineering/wildtype_insulin/Analysis
+# Command line:
+#   gmx rmsf -f ../MD/traj_comp.xtc -s ../MD/4eyd_md.tpr -o 4eyd_rmsf_100ns.xvg -res
+# gmx rmsf is part of G R O M A C S:
+#
+# Gallium Rubidium Oxygen Manganese Argon Carbon Silicon
+#
+@    title "RMS fluctuation"
+@    xaxis  label "Residue"
+@    yaxis  label "(nm)"
+@TYPE xy
+    1   0.2716
+    2   0.2223
+    3   0.2196
+    4   0.2111
+    5   0.1581
+    6   0.1080
+    7   0.1438
+    8   0.1635
+    9   0.1471
+   10   0.1191
+   11   0.0779
+   12   0.1005
+   13   0.1203
+   14   0.1432
+   15   0.1226
+   16   0.1036
+   17   0.1298
+   18   0.1660
+   19   0.1503
+   20   0.1355
+   21   0.1752
+   22   0.3358
+   23   0.1907
+   24   0.1463
+   25   0.1175
+   26   0.1144
+   27   0.1365
+   28   0.1626
+   29   0.1868
+   30   0.1867
+   31   0.1561
+   32   0.1304
+   33   0.1262
+   34   0.1229
+   35   0.1074
+   36   0.0939
+   37   0.1005
+   38   0.1020
+   39   0.0852
+   40   0.0829
+   41   0.1149
+   42   0.1427
+   43   0.1473
+   44   0.1434
+   45   0.1484
+   46   0.1407
+   47   0.1950
+   48   0.3123
+   49   0.4784
+   50   0.7027
+   51   0.8666

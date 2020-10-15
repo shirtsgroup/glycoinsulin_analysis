@@ -1,0 +1,34 @@
+# This file was created Fri Oct  2 02:22:18 2020
+# Created by:
+#                 :-) GROMACS - gmx do_dssp, 2020.2-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/wei-tse/Documents/Glycoengineering/wildtype_insulin/Analysis
+# Command line:
+#   gmx do_dssp -f ../MD/traj_comp.xtc -s ../MD/4eyd_md.tpr -sc 4eyd_sscount_100ns.xvg -o 4eyd_dssp_100ns.xpm
+# gmx do_dssp is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "Secondary Structure"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "Number of Residues"
+@TYPE xy
+@ subtitle "Structure = A-Helix + B-Sheet +  + Turn"
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Structure"
+@ s1 legend "Coil"
+@ s2 legend "B-Sheet"
+@ s3 legend "Bend"
+@ s4 legend "Turn"
+@ s5 legend "A-Helix"
+@ s6 legend "Chain_Separator"
+       0    34    15     4     2     4    26     1
+# Totals    34    15     4     2     4    26     1
+# SS pr.  0.65  0.29  0.08  0.04  0.08  0.50  0.02

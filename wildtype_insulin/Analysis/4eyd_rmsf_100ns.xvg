@@ -1,0 +1,68 @@
+# This file was created Fri Oct  9 10:52:19 2020
+# Created by:
+#                  :-) GROMACS - gmx rmsf, 2020.2-MODIFIED (-:
+# 
+# Executable:   /usr/local/gromacs/bin/gmx
+# Data prefix:  /usr/local/gromacs
+# Working dir:  /home/wei-tse/Documents/Glycoinsulin_project/wildtype_insulin/Analysis
+# Command line:
+#   gmx rmsf -f ../MD/traj_comp.xtc -s ../MD/4eyd_md.tpr -o 4eyd_rmsf_100ns.xvg -res
+# gmx rmsf is part of G R O M A C S:
+#
+# Glycine aRginine prOline Methionine Alanine Cystine Serine
+#
+@    title "RMS fluctuation"
+@    xaxis  label "Residue"
+@    yaxis  label "(nm)"
+@TYPE xy
+    1   0.2603
+    2   0.1987
+    3   0.1931
+    4   0.2079
+    5   0.1783
+    6   0.1350
+    7   0.1535
+    8   0.1723
+    9   0.1606
+   10   0.1229
+   11   0.1040
+   12   0.1164
+   13   0.1431
+   14   0.1707
+   15   0.1422
+   16   0.1117
+   17   0.1486
+   18   0.1954
+   19   0.1610
+   20   0.1252
+   21   0.1646
+   22   0.3698
+   23   0.2745
+   24   0.1903
+   25   0.1556
+   26   0.1282
+   27   0.1288
+   28   0.1563
+   29   0.1860
+   30   0.1961
+   31   0.1579
+   32   0.1293
+   33   0.1352
+   34   0.1390
+   35   0.1174
+   36   0.0996
+   37   0.1155
+   38   0.1155
+   39   0.0994
+   40   0.1032
+   41   0.1541
+   42   0.2079
+   43   0.1846
+   44   0.1823
+   45   0.1725
+   46   0.1722
+   47   0.2165
+   48   0.3435
+   49   0.5385
+   50   0.7293
+   51   0.8717
