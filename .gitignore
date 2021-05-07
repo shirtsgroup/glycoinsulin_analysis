@@ -1,9 +1,0 @@
-# We ignore any file that is larger than 100 MB.
-wildtype_insulin/MD/traj_comp.xtc
-wildtype_insulin/MD/4eyd_nojump.xtc
-wildtype_insulin/MD/md.edr
-wildtype_insulin/MD/md.log
-
-
-
-
