@@ -59,7 +59,7 @@ if [ ${submit} == "yes" ]
 then
     sbatch run.sh
     echo Job submitted!
-elif [ ${stop} == "no" ]
+elif [ ${submit} == "no" ]
 then 
     exit
 fi
