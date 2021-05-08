@@ -26,7 +26,7 @@ Note that due to the huge size of the simulation files, here we only maintain th
   - `gmx_analysis.sh`: A simple bash script calling GROMACS commands to perform the most commonly used data analysis.
 - `analysis_codes`: 
   - Assessment of proteolytic stability
-    - `SASA_analysis.py`: A Python code for calculating the solvent-accessible surface area (SASA) of the cleavage site for each glycoform and visualizing the results using a histogram. Note that the plan of the peptide bond plane (CONH) plane was considered when calculating the SASA, which involve the atoms of the cleavage site itself and its next residue. 
+    - `SASA_analysis.py`: A Python code for calculating the solvent-accessible surface area (SASA) of the cleavage site for each glycoform. The results include histograms, time evolutions and sitributions of the SASA value of each glycoform. Note that the peptide bond plane (CONH) plane was considered when calculating the SASA, which involve the atoms of the cleavage site itself and its next residue. 
     - `Baker_Hubbard_hbonds.py`: A Python code for identifying the glycan-involved hydrogen bonds using the Baker-Hubbard criteria. The existence percentage of each hydrogen bond is calculated. 
   - Assessment of dimerization propensity
   - Assessment of biological activity
