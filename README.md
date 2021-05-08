@@ -19,10 +19,11 @@ Note that due to the huge size of the simulation files, here we only maintain th
 - `glyco_insulin`:
   - `Glycam_outputs/`: Output files obtained from the GLYCAM glycoprotein builder.
 - `useful_files`:
+  - `acpype.py`: A Python code for converting coordinates and topology files between different the formats compatible with different simulation software. 
   -  `mdp_files`: mdp files for neutralization, energy minimization, equilibration and MD simulation. 
   - `prep_dir.sh`: A simple bash script for preparing the folders given the mdp files. 
   - `prep_md.sh`: A simple bash script for automating all the steps prior to the MD simulation. 
-  - `analysis_md.sh`: A simple bash script calling GROMACS commands to perform the most commonly used data analysis.
+  - `gmx_analysis.sh`: A simple bash script calling GROMACS commands to perform the most commonly used data analysis.
 - `analysis_codes`: 
   - Assessment of proteolytic stability
     - `SASA_analysis.py`: A Python code for calculating the solvent-accessible surface area (SASA) of the cleavage site for each glycoform and visualizing the results using a histogram. Note that the plan of the peptide bond plane (CONH) plane was considered when calculating the SASA, which involve the atoms of the cleavage site itself and its next residue. 
