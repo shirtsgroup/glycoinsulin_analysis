@@ -82,7 +82,18 @@ then
     :
 fi
 
-echo Given the salinity as 0.15 M, as long as the box volume is between 110.7026 and 121.7728 nm^3, 11 ions from the buffer solution should be added.
+echo Given the salinity as 0.15 M, below is the number of ions required given the box volume:
+table="+-----------+---------------------+
+| # of ions |      Box volume     |
++-----------+---------------------+
+|     10    |  99.6323 - 121.7727 |
+|     11    | 110.7026 - 121.7728 |
+|     12    | 121.7729 - 132.8431 |
+|     13    | 132.8432 - 142.9133 |
++-----------+---------------------+"
+echo "${table}"
+qtot=$(grep "qtot" ../Topology/${sys}.top | tail -1 | awk '{print $11}')
+echo "According to the topology file, the number of total charges is ${qtot}"
 read -p "Please input the number of sodium ions: " np
 read -p "Please input the number of chloride ions: " nn
 mpirun -np 1 gmx_mpi genion -s *tpr -o ${sys}_ions.gro -p ../Topology/${sys}.top -pname NA -nname CL -np ${np} -nn ${nn}
