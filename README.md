@@ -2,7 +2,7 @@ Glycoinsulin_project
 =======================
 
 ## Description
-This is a repository for maintaining the important files for running or analyzing MD simulations of different insulin wildtypes and their glycovariants. Specifically, we adopted five X-ray/NMR structures of the insulin wildtype, whose details for file preparation for MD simulations are summarized below. 
+This is a repository for maintaining important files for running or analyzing MD simulations of different insulin wildtypes and their glycovariants. Specifically, we adopted five X-ray/NMR structures of the insulin wildtype, whose details for file preparation for MD simulations are summarized below. 
 
 | PDB code      | 4EYD           | 4EY9           | 4EY1           | 3I3Z                   | 2MVC               |
 |:-------------:|:--------------:|:--------------:|:--------------:|:----------------------:|:------------------:|
@@ -14,15 +14,18 @@ This is a repository for maintaining the important files for running or analyzin
 | Total charges | -1             | -1             | -1             | -1                     | -1                 |
 
 Note that due to the huge size of the simulation files, here we only maintain the following files that are important for preparing/analyzing the MD simulations. We don't store the output files of the MD simulations. Specifically, in this repository, there are the following folders
-- `wildtype_insulin`:
+- `wildtype_insulin/`:
   - `Hpp_results/`: Output files of insulin wildtype obtained from the H++ server
-- `glyco_insulin`:
+- `glyco_insulin/`:
+  - `compare_strucutres.py`: A Python code for comparing the atom types and total charges of different wildtype structures and the same glycoform based on different wildtype structures. 
   - `Glycam_outputs/`: Output files obtained from the GLYCAM glycoprotein builder.
-- `useful_files`:
-  - `acpype.py`: A Python code for converting coordinates and topology files between different the formats compatible with different simulation software. 
-  -  `mdp_files`: mdp files for neutralization, energy minimization, equilibration and MD simulation. 
-  - `prep_dir.sh`: A simple bash script for preparing the folders given the mdp files. 
-  - `prep_md.sh`: A simple bash script for automating all the steps prior to the MD simulation. 
+- `useful_files/`:
+  - `acpype.py`: A Python code for converting coordinates and topology files between different formats compatible with different simulation software. 
+  -  `mdp_files/`: mdp files for neutralization, energy minimization, equilibration and MD simulation. 
+  - `archived/`: Archived scripts that used to be useful. 
+    - `prep_dir.sh`: A simple bash script for preparing the folders given the mdp files. 
+    - `prep_md.sh`: A simple bash script for automating all the steps prior to the MD simulation. 
+  - `prep.sh`: A bash script combining `prep_dir.sh` and `prep_md.sh`, which automates all the steps before launching an MD simulation. 
   - `gmx_analysis.sh`: A simple bash script calling GROMACS commands to perform the most commonly used data analysis.
 - `analysis_codes`: 
   - Assessment of proteolytic stability
