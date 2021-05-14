@@ -12,6 +12,10 @@ Below we summarize the protocol we used to prepare the input files for the MD si
     ```
     python acpype.py -x structure.rst7 -p structure.parm7
     ``` 
+- **Step 3**: Transfer the following files to the working directory on Bridges-2:
+  - `mdp_files/`
+  - `gmx_analysis.sh`
+  - `prep.sh`
 - **Step 3**: On Bridges-2, launch an interactive node using: `interact -N 1 --ntasks-per-node=64` and then execute `bash prep.sh`, answer all the prompts to launch an MD simulation, and submit the job. 
 
 For more information, please visit the relevant [HackMD note](https://hackmd.io/@WeiTseHsu/glycoinsulin_preparation).
