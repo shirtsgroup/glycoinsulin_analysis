@@ -13,7 +13,7 @@ then
     cp ../Hpp_results/${sys}.gro .
 elif [ ${type} == "2" ]
 then 
-    read -p "Please input the number of the ACS glycoform: " n
+    read -p "Please input the serial number of the ACS glycoform: " n
     sys=glycoform_${n}_ACS
     mkdir Box EM Equil MD Sol_ions Topology Analysis
     cd Topology
@@ -86,10 +86,11 @@ echo Given the salinity as 0.15 M, below is the number of ions required given th
 table="+-----------+---------------------+
 | # of ions |      Box volume     |
 +-----------+---------------------+
-|     10    |  99.6323 - 121.7727 |
+|     10    |  99.6323 - 110.7025 |
 |     11    | 110.7026 - 121.7728 |
 |     12    | 121.7729 - 132.8431 |
-|     13    | 132.8432 - 142.9133 |
+|     13    | 132.8432 - 143.9133 |
+|     14    | 143.9134 - 154.9836 |
 +-----------+---------------------+"
 echo "${table}"
 qtot=$(grep "qtot" ../Topology/${sys}.top | tail -1 | awk '{print $11}')
@@ -105,10 +106,18 @@ cd ../NPT/ && mpirun -np 1 gmx_mpi grompp -f npt_equil.mdp -c ../NVT/${sys}_equi
 mpirun -np 64 gmx_mpi mdrun -s *tpr -o ${sys}_equil.trr -c ${sys}_equil.gro -g equil.log -e equil.edr -ntomp 1
 cd ../../MD/ && mpirun -np 1 gmx_mpi grompp -f md.mdp -c ../Equil/NPT/${sys}_equil.gro -p ../Topology/${sys}.top -o ${sys}_md.tpr -t ../Equil/NPT/state.cpt
 
+read -p "The job name is the same as the system name (${sys}). Do you wnat to change it? If so, enter a new name, or, enter 'no': " change
+if [ ${change} == "no" ]
+then
+    jobname=${sys}
+else
+    jobname=${change}
+fi
+
 echo Writing job submission script ...
 touch run.sh
 d="#!/bin/sh
-#SBATCH --job-name ${sys}
+#SBATCH --job-name ${jobname}
 #SBATCH -p RM
 #SBATCH -N 1
 #SBATCH -t 48:00:00
@@ -119,7 +128,7 @@ source /jet/home/wehs7661/src/plumed2/sourceme.sh
 module load gcc/10.2.0
 module load openmpi/3.1.6-gcc10.2.0
 
-mpirun -np 128 gmx_mpi mdrun -s ${sys}_md.tpr -o ${sys}_md.trr -c ${sys}_md.gro -g md.log -e md.edr -ntomp 1 -npme 32"
+mpirun -np 128 gmx_mpi mdrun -s ${sys}_md.tpr -x ${sys}_md.xtc -c ${sys}_md.gro -g md.log -e md.edr -cpi state.cpt -ntomp 1 -npme 32"
 echo "${d}" >> run.sh
 
 read -p "Do you want to submit the job (yes/no): " submit
