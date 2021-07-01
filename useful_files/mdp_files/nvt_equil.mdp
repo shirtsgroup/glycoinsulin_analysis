@@ -55,8 +55,10 @@ ref_t                    = 310.15
 
 ; Pressure coupling is on for NPT
 pcoupl                   = no   ; no pressure for NVT equilibration
+
+; Velocity generation
 gen_vel                  = yes
-gen-temp                 = 298
+gen-temp                 = 310.15
 gen-seed                 = 6722267; need to randomize the seed each time.
 
 ; options for bonds
