@@ -61,7 +61,7 @@ compressibility          = 4.5e-5   ; For water at 1 atm and 300 K the compressi
 
 ; refcoord_scaling should do nothing since there are no position restraints.
 gen_vel                  = no
-; gen-temp                 = 298
+; gen-temp                 = 310.15
 ; gen-seed                 = 6722267; need to randomize the seed each time.
 
 ; options for bonds

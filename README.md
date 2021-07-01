@@ -13,7 +13,7 @@ This is a repository for maintaining important files for running or analyzing MD
 | pH value      | 8.0            | 8.0            | 7.9            | 6.9                    | 7.3                |
 | Total charges | -1             | -1             | -1             | -1                     | -1                 |
 
-Note that due to the huge size of the simulation files, here we only maintain the following files that are important for preparing/analyzing the MD simulations. We don't store the output files of the MD simulations. Specifically, in this repository, there are the following folders
+Note that due to the huge size of the simulation files, here we only maintain the following files that are important for preparing/analyzing the MD simulations. We don't store the output files of the MD simulations. Specifically, in this repository, there are the following folders/files.
 - `wildtype_insulin/`:
   - `Hpp_results/`: Output files of insulin wildtype obtained from the H++ server
 - `glyco_insulin/`:

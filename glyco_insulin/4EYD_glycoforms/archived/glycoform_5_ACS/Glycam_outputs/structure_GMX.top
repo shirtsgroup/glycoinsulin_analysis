@@ -1,4 +1,4 @@
-; structure_GMX.top created by acpype (Rev: 403) on Tue Jun 29 03:15:18 2021
+; structure_GMX.top created by acpype (Rev: 403) on Sun May  9 00:23:51 2021
 
 [ defaults ]
 ; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
