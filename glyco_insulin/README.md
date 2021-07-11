@@ -17,10 +17,12 @@ Below is the directory structure of the folder `glyco_insulin`, with `i` being t
 ├── 4EY9_glycoforms
 │   ├── 0.15_80_10_pH8.0_4ey9_clean.result.pdb
 │   ├── 4ey9_input.pdb
+│   ├── 4eyd_max_sasa_SerA12_input.pdb
 │   └── glycoform_${i}_ACS
 ├── 4EYD_glycoforms
 │   ├── 0.15_80_10_pH8.0_4eyd_clean.result.pdb
 │   ├── 4eyd_input.pdb
+│   ├── 4eyd_max_sasa_SerA12_input.pdb
 │   ├── archived
 │   └── glycoform_${i}_ACS
 ├── README.md
