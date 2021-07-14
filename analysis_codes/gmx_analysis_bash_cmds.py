@@ -1,3 +1,4 @@
+import os
 import argparse
 import glob
 import gromacs as gmx
@@ -52,8 +53,7 @@ if __name__ == "__main__":
 
     # Step 2: Create the following index groups:
     if not glob.glob("*.ndx"):  # no ndx file
-        gmx_fn = get_gmx_fn(gmx, "make_ndx")
-        gmx_fn(f=args.gro, o=args.ndx, input=("q"))
+        os.system(f'mpirun -np 1 gmx_mpi make_ndx -f {args.gro} -o {args.ndx}')
 
     ndx = gmx.fileformats.ndx.NDX()
     ndx.read(args.ndx)
@@ -85,34 +85,16 @@ if __name__ == "__main__":
     non_water_idx = groups.index("non-Water")
     B25_idx = groups.index("B25-B26")
     B26_idx = groups.index("B26-B27")
-    gmx_fn = get_gmx_fn(gmx, "sasa")
 
     if args.skip >= 1:
         pass
     else:
-        gmx_fn(
-            f=args.xtc,
-            s=args.tpr,
-            n=args.ndx,
-            o=f"{args.sys}_sasa_B25.xvg",
-            surface=f"group {non_water_idx}",
-            output=f"group {B25_idx}",
-            dt=250,
-        )
+        os.system(f'mpirun -np 1 gmx_mpi sasa -f {args.xtc} -s {args.tpr} -n {args.ndx} -o {args.sys}_sasa_B25.xvg -surface "group {non_water_idx}" -output "group {B25_idx}" -dt 250')
 
     if args.skip >= 2:
         pass
     else:
-        gmx_fn(
-            f=args.xtc,
-            s=args.tpr,
-            n=args.ndx,
-            o=f"{args.sys}_sasa_B26.xvg",
-            surface=f"group {non_water_idx}",
-            output=f"group {B26_idx}",
-            dt=250,
-        )
+        os.system(f'mpirun -np 1 gmx_mpi sasa -f {args.xtc} -s {args.tpr} -n {args.ndx} -o {args.sys}_sasa_B25.xvg -surface "group {non_water_idx}" -output "group {B26_idx}" -dt 250')
 
     # Convert the trajectory for H.B. analysis
-    gmx_fn = get_gmx_fn(gmx, "trjconv")
-    gmx_fn(f=args.xtc, s=args.tpr, n=args.ndx, o=f"{args.sys}_dt250.pdb", dt=250)
+    os.system(f'echo 1 | mpirun -np 1 gmx_mpi trjconv -f {args.xtc} -s {args.tpr} -n {args.ndx} -o {args.sys}_dt250.pdb -dt 250')
