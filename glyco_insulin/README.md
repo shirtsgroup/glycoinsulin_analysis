@@ -65,3 +65,20 @@ For each glycoform, below we summarize the details of parameters adopted in the 
 - Linkage: all $\alpha$-1, 2-glycosidic linkage
 - Default glycosidic angles were used.
 - GLYCAM notation: `DManpa1-2DManpa1-2DManpa1-OH`
+
+**Note**: For the X-ray crystal strucutres of the wildtype 4EYD and 4EY9, the solvent accessible surface area of the residue SerA12 was too small for GLYCAM glycoprotein builder to attach any sugar. Therefore, from the MD trajectories of these two wildtype strucutres, we extracted the configuration with the largest SASA value at SerA12. The extracted configuration went through the some postprocessing to serve as the input for the GLYCAM glycoprotein builder to attach GalNAc at SerA12. The detailed workflow is as follows:
+- For each wildtype structure of 4EYD and 4EY9, make the index group for the residue SerA12.
+  - Sample command: `gmx make_ndx -f ../MD/*gro -o *ndx -n *ndx`
+- Calculate the SASA of SerA12
+  - Sample command: `gmx sasa -f ../MD/traj_comp.xtc -s ../MD/4ey9_md.tpr -n 4ey9.ndx -o 4ey9_sasa_SerA12.xvg -surface 'group 14' -output 'group 21' -dt 250`
+- Find the time frame corresponding to the maximum of the SASA.
+- Use `trjconv` to recenter the protein to avoid crossing the periodic boundaries. Note that this is necessary since GLYCAM glycoprotein builder does not seem to take PBC into account. If important structures (e.g. a disulfide bridge) are crossing the periodic boundaries, glycoprotein builder would not be able to catch it.
+  - Sample command 1: `gmx trjconv -s ../MD/*tpr -f ../MD/traj_comp.xtc -o 4eyd_nojump_protein_dt2.xtc -center -pbc nojump`
+  - Sample command 2: `gmx trjconv -s ../MD/*tpr -f *nojump*.xtc -o 4eyd_center_protein_dt2.xtc -center -pbc mol -ur compact`
+- Use `trjconv` to extract the configuration PDB file (output: only protein)
+  - Sample command: `gmx trjconv -s ../MD/*tpr -f 4eyd_center_protein_dt2.xtc -o 4eyd_max_sasa_SerA12.pdb -dump {time}` where `{time}` is the timeframe of the configuration of interest corresponds.
+- Modify the output PDB file to make it readable by GLYCAM glycoprotein builder
+  - The easiest way is to copy the input file for GLYCAM glycoprotein builder when attaching other sugars to other sites, i.e. `4eyd_input.pdb` and `4ey9_input.pdb` and then replace the coordinates with the coordinates of the extracted configuration. 
+  - Once can modify `REMARK` to make the source of the PDB file more clear. However, statements like `TITLE` or `CRYSTL1`, `MODEL` are not compatible in GLYCAM.
+- With inputs such as `4eyd_max_sasa_SerA12_input.pdb` or `4ey9_max_sasa_SerA12_input.pdb`, attach GalNAc at SerA12.
+- Similarly, use `prep.sh` to automate the preparation process and launch the MD simulation. 
