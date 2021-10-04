@@ -43,7 +43,7 @@ if __name__ == "__main__":
     plt.rc("font", family="serif")
 
     folders = ["4EYD", "4EY9", "4EY1", "3I3Z", "2MVC"]
-    res = ["B25", "B26"]
+    res = ["B24", "B25"]
     exp = [
         "$=$",
         "$-$",
@@ -62,8 +62,8 @@ if __name__ == "__main__":
     sys = ["WT"]
     sys.extend([f"GF {i}" for i in range(2, 14)])
     y_labels = [
+        'SASA of B24 relative to WT (nm$^{2}$)',
         'SASA of B25 relative to WT (nm$^{2}$)',
-        'SASA of B26 relative to WT (nm$^{2}$)',
     ]
     labels = [f"{sys[i]}\n{exp[i]}" for i in range(len(sys))]
     colors = ['black']
@@ -75,16 +75,16 @@ if __name__ == "__main__":
         elif r"\approx$" in labels[i]:
             colors.append('magenta')
 
-    B25_sasa, B25_err, B26_sasa, B26_err = [], [], [], []
+    B24_sasa, B24_err, B25_sasa, B25_err = [], [], [], []
     if os.path.isfile(f'sasa_data.pickle') is True:
         print('Found the pickled file of SASA data! Reading the data now ...')
         with open('sasa_data.pickle', 'rb') as handle:
             sasa_data = pickle.load(handle)
-            B25_sasa, B25_err, B26_sasa, B26_err = sasa_data[0], sasa_data[1], sasa_data[2], sasa_data[3]
+            B24_sasa, B24_err, B25_sasa, B25_err = sasa_data[0], sasa_data[1], sasa_data[2], sasa_data[3]
     else:
         for folder in folders:
             for i in range(len(res)):
-                files = natsort.natsorted(glob.glob(f"{folder}/*sasa_{res[i]}.xvg"))
+                files = natsort.natsorted(glob.glob(f"{folder}/*sasa_res_{res[i]}.xvg"))
 
                 avg_list, std_list = [], []
                 for f in files:
@@ -93,12 +93,12 @@ if __name__ == "__main__":
                     std_list.append(std)
 
                 if i == 0:
+                    B24_sasa.append(avg_list)
+                    B24_err.append(std_list)
+                elif i == 1:
                     B25_sasa.append(avg_list)
                     B25_err.append(std_list)
-                elif i == 1:
-                    B26_sasa.append(avg_list)
-                    B26_err.append(std_list)
-        sasa_data = [B25_sasa, B25_err, B26_sasa, B26_err]
+        sasa_data = [B24_sasa, B24_err, B25_sasa, B25_err]
         with open('sasa_data.pickle', 'wb') as handle:
             pickle.dump(sasa_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
@@ -128,14 +128,32 @@ if __name__ == "__main__":
     
     # Plot the avg SASA (for the paper)
     # Average across all wildtype basis
+    B24_avg, B24_std = sum_up_data(B24_sasa, B24_err)
     B25_avg, B25_std = sum_up_data(B25_sasa, B25_err)
-    B26_avg, B26_std = sum_up_data(B26_sasa, B26_err)
 
     # SASA relative to the WT
     x = np.arange(13)
 
     fig = plt.figure(figsize=(12, 8))
     ax = fig.add_subplot(2, 1, 1)
+    plt.bar(
+        x,
+        B24_avg - B24_avg[0],
+        width=0.5,
+        yerr=np.sqrt(np.power(B24_std, 2) + B24_std[0] ** 2),
+        capsize=3,
+    )
+    plt.ylabel("Average SASA of B24 (nm$^{2}$)", fontsize=14)
+    plt.xticks(np.arange(len(labels)), tuple(labels), fontsize=15)
+    plt.xlim([x[0] - 0.8, x[-1] + 0.8])
+    plt.ylim([-0.5, 0.1])
+    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], 0.1, color='cyan', alpha=0.8)
+    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], -0.5, color='lightgreen', alpha=0.8)
+    plt.grid()
+    for color, tick in zip(colors, ax.xaxis.get_major_ticks()):
+        tick.label1.set_color(color)
+
+    ax = fig.add_subplot(2, 1, 2)
     plt.bar(
         x,
         B25_avg - B25_avg[0],
@@ -146,34 +164,16 @@ if __name__ == "__main__":
     plt.ylabel("Average SASA of B25 (nm$^{2}$)", fontsize=14)
     plt.xticks(np.arange(len(labels)), tuple(labels), fontsize=15)
     plt.xlim([x[0] - 0.8, x[-1] + 0.8])
-    plt.ylim([-0.09, 0.04])
-    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], 0.04, color='cyan', alpha=0.8)
-    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], -0.09, color='lightgreen', alpha=0.8)
-    plt.grid()
-    for color, tick in zip(colors, ax.xaxis.get_major_ticks()):
-        tick.label1.set_color(color)
-
-    ax = fig.add_subplot(2, 1, 2)
-    plt.bar(
-        x,
-        B26_avg - B26_avg[0],
-        width=0.5,
-        yerr=np.sqrt(np.power(B26_std, 2) + B26_std[0] ** 2),
-        capsize=3,
-    )
-    plt.ylabel("Average SASA of B26 (nm$^{2}$)", fontsize=14)
-    plt.xticks(np.arange(len(labels)), tuple(labels), fontsize=15)
-    plt.xlim([x[0] - 0.8, x[-1] + 0.8])
-    plt.ylim([-0.12, 0.04])
-    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], 0.04, color='cyan', alpha=0.8)
-    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], -0.12, color='lightgreen', alpha=0.8)
+    plt.ylim([-0.45, 0.1])
+    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], 0.1, color='cyan', alpha=0.8)
+    plt.fill_between([x[0] - 0.8, x[-1] + 0.8], -0.45, color='lightgreen', alpha=0.8)
     plt.grid()
     for color, tick in zip(colors, ax.xaxis.get_major_ticks()):
         tick.label1.set_color(color)
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    plt.suptitle('Average SASA of B25 and B26 peptide bonds compared to WT', weight='bold', fontsize=18)
-    plt.savefig("sasa_PB_all.png", dpi=600)
+    plt.suptitle('Average SASA of B24 and B25 residues compared to WT', weight='bold', fontsize=18)
+    plt.savefig("sasa_res_all.png", dpi=600)
 
     t2 = time.time()
     print(f"Elapsed time: {t2 - t1} seconds.")
