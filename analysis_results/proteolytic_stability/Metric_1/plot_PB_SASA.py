@@ -40,7 +40,7 @@ if __name__ == "__main__":
     rc("font", **{"family": "sans-serif", "sans-serif": ["DejaVu Sans"], "size": 10})
     # Set the font used for MathJax - more on this later
     rc("mathtext", **{"default": "regular"})
-    plt.rc("font", family="serif")
+    plt.rc("font", family="Arial")
 
     folders = ["4EYD", "4EY9", "4EY1", "3I3Z", "2MVC"]
     res = ["B25", "B26"]
@@ -134,17 +134,17 @@ if __name__ == "__main__":
     # SASA relative to the WT
     x = np.arange(13)
 
-    fig = plt.figure(figsize=(12, 8))
+    fig = plt.figure(figsize=(8, 8))
     ax = fig.add_subplot(2, 1, 1)
     plt.bar(
         x,
         B25_avg - B25_avg[0],
-        width=0.5,
+        width=0.4,
         yerr=np.sqrt(np.power(B25_std, 2) + B25_std[0] ** 2),
         capsize=3,
     )
-    plt.ylabel("Average SASA of B25 (nm$^{2}$)", fontsize=14)
-    plt.xticks(np.arange(len(labels)), tuple(labels), fontsize=15)
+    plt.ylabel("SASA of B25-B26 scissile bond (nm$^{2}$)", fontsize=14)
+    plt.xticks(np.arange(len(labels)), tuple(labels), fontsize=12)
     plt.xlim([x[0] - 0.8, x[-1] + 0.8])
     plt.ylim([-0.09, 0.04])
     plt.fill_between([x[0] - 0.8, x[-1] + 0.8], 0.04, color='cyan', alpha=0.8)
@@ -157,12 +157,12 @@ if __name__ == "__main__":
     plt.bar(
         x,
         B26_avg - B26_avg[0],
-        width=0.5,
+        width=0.4,
         yerr=np.sqrt(np.power(B26_std, 2) + B26_std[0] ** 2),
         capsize=3,
     )
-    plt.ylabel("Average SASA of B26 (nm$^{2}$)", fontsize=14)
-    plt.xticks(np.arange(len(labels)), tuple(labels), fontsize=15)
+    plt.ylabel("SASA of B26-B27 scissile bond (nm$^{2}$)", fontsize=14)
+    plt.xticks(np.arange(len(labels)), tuple(labels), fontsize=12)
     plt.xlim([x[0] - 0.8, x[-1] + 0.8])
     plt.ylim([-0.12, 0.04])
     plt.fill_between([x[0] - 0.8, x[-1] + 0.8], 0.04, color='cyan', alpha=0.8)
@@ -172,7 +172,7 @@ if __name__ == "__main__":
         tick.label1.set_color(color)
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    plt.suptitle('Average SASA of B25 and B26 peptide bonds compared to WT', weight='bold', fontsize=18)
+    plt.suptitle('Average SASA of scissile bond compared to WT', weight='bold', fontsize=15)
     plt.savefig("sasa_PB_all.png", dpi=600)
 
     t2 = time.time()
