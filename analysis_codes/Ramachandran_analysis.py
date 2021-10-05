@@ -23,11 +23,6 @@ def initialize():
     )
     parser.add_argument("-s", "--sys", help="The system name (in uppercase).")
     parser.add_argument(
-        "-i",
-        "--input",
-        help="The filename (path included) of the wildtype pdb trajectory.",
-    )
-    parser.add_argument(
         "-r",
         "--res",
         nargs="+",
@@ -287,6 +282,9 @@ if __name__ == "__main__":
                 L.logger(
                     f"Beta-sheet fraction of residue B{r - 21} in {sys[i]}: {f:.2f}%"
                 )
+        with open(f"{args.dir}{args.sys.lower()}_beta_res{r}.pickle", "wb") as handle:
+            pickle.dump(beta_fractions, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
         exp = ['$=$', '$-$', '$-$', '$-$', r'$\approx$', '$-$', '$-$', '$-$', r'$\approx$', '$+$', '$-$', r'$\approx$', '$+$']
         fig, ax = plt.subplots(figsize=(12, 3))
         plt.bar([f'{sys[i]}\n{exp[i]}' for i in range(len(sys))], beta_fractions, color="lightblue")
