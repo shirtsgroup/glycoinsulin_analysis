@@ -72,7 +72,7 @@ if __name__ == "__main__":
             colors.append('blue')
         elif r"$-$" in labels[i]:
             colors.append('red')
-        elif r"\approx$" in labels[i]:
+        elif r"$\approx$" in labels[i]:
             colors.append('magenta')
 
     B24_sasa, B24_err, B25_sasa, B25_err = [], [], [], []
