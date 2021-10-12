@@ -56,6 +56,9 @@ if __name__ == "__main__":
 
     fig = plt.figure(figsize=(16, 8))
     avg, err = np.mean(beta_all, axis=0), np.std(beta_all, axis=0)
+    print(avg[0])
+    import sys 
+    sys.exit()
     for j in range(4):   # 4 different residues
         ax = fig.add_subplot(2, 2, j + 1)
 
