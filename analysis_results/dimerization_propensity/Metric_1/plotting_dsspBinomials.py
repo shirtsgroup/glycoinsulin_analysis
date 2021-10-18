@@ -13,11 +13,14 @@ def wilsonScore(p, n, z):
 #     p_prime = (p + (z**2/(2*n))) / (1 + (z**2/n))
     return round(score_plus,4), round(score_minus,4)#, round(sd,4), round(p_prime, 4)
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description="Plotting script for making the graphs for "
+				"Supplemental Figure S4.")
 
-parser.add_argument("f", help="File with total DSSP values for binomial calculation")
-parser.add_argument("l", help="File with the Helix lag times for interval calculation")
-parser.add_argument("prefix", help="Model of glycoform")
+parser.add_argument("f", help="CSV file with total DSSP values for binomial calculation, e.g. "
+								"-f 4eyd_totals.csv")
+parser.add_argument("l", help="CSV file with the Helix lag times for interval calculation, e.g. "
+								"-l 4eyd_lagtimes.csv")
+parser.add_argument("prefix", help="Model of glycoform, e.g. 4EYD")
 
 args = parser.parse_args()
 
@@ -99,8 +102,8 @@ fig, ax = plt.subplots()
 plt.bar(gf_names, dssp, 0.5, color='lightblue', capsize=3, yerr=np.array([dssp_lower,dssp_upper]), ecolor = "red")
 plt.xticks(rotation=45)
 plt.ylim(-0.1, 1.1)
-plt.ylabel("Proportion of structure with Helix assignment")
-plt.title(f"Comparison of Helix Proportion: {args.prefix}", weight='bold')
+plt.ylabel("Proportion of structure with helix assignment")
+plt.title(f"Comparison of helix proportion: {args.prefix}", weight='bold')
 plt.grid(linewidth=0.5)
 
-plt.savefig(f"{args.prefix}_DSSP_binomialPlot.png", dpi=600)
+plt.savefig(f"{args.prefix}_DSSP_binomialPlot.png", dpi=1200)

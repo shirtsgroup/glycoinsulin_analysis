@@ -14,10 +14,11 @@ def wilsonScore(p, n, z):
 #     p_prime = (p + (z**2/(2*n))) / (1 + (z**2/n))
     return round(score_plus,4), round(score_minus,4)#, round(sd,4), round(p_prime, 4)
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description="Plotting script for making the individual graphs "
+							"for Supplemental Figure S6.")
 
-parser.add_argument("f", help="Occlusion results file")
-parser.add_argument("prefix", help="Model of glycoform")
+parser.add_argument("f", help="Occlusion results csv file, e.g. -f 4eyd_occlusion_totals.csv")
+parser.add_argument("prefix", help="Model of glycoform, e.g. 4EYD")
 
 args = parser.parse_args()
 
@@ -101,7 +102,7 @@ plt.bar(gf_names, occlusion, 0.5, color='lightblue', capsize=3, yerr=np.array([e
 plt.xticks(rotation=45)
 plt.ylim(-0.1, 1.1)
 plt.ylabel("Proportion of frames with occlusion")
-plt.title(f"Comparison of Dimer-Interface Occlusion Proportion: {args.prefix}", weight='bold')
+plt.title(f"Comparison of dimer-interface occlusion proportion: {args.prefix}", weight='bold')
 plt.grid(linewidth=0.5)
 
-plt.savefig(f"{args.prefix}_occlusion_binomialPlot.png", dpi=600)
+plt.savefig(f"{args.prefix}_occlusion_binomialPlot.png", dpi=1200)
