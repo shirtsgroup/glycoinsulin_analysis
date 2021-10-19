@@ -45,7 +45,7 @@ ax1.set_ylabel("Fraction of secondary structure")
 ax1.grid(linewidth=0.5)
 plt.xticks(rotation=45)
 
-plt.savefig("Combined_GFs_helixAssignmentOnly_SupFigS5.png", dpi=600)
+plt.savefig("Combined_GFs_helixAssignmentOnly_Fig7.png", dpi=600)
 
 
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex=True, figsize=(13,9))
@@ -72,4 +72,4 @@ plt.xticks(rotation=45)
 plt.sca(ax3)
 plt.xticks(rotation=45)
 
-plt.savefig("Combined_GFs_other3DSSP_Fig7.png", dpi=600)
+plt.savefig("Combined_GFs_other3DSSP_SupFigS5.png", dpi=600)
