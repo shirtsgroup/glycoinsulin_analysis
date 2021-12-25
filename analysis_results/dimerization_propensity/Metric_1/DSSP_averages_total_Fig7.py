@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import matplotlib.pyplot as plt 
 from matplotlib import rc
 import numpy as np
@@ -39,6 +37,7 @@ Code to plot the data
 """
 fig, ax1 = plt.subplots()
 
+tickLabel_color_list = ["black", "black", "black", "black", "black", "black", "black", "red", "red", "black", "black", "red"]
 #ax1.errorbar(gf_names, helix, yerr=helix_err, fmt="ko", ecolor = "black", capsize=5)
 ax1.bar(gf_names, helix, 0.5, color='lightblue', capsize=3, yerr=helix_err, ecolor="black")
 ax1.set_ylim(0.00, 0.25)
@@ -46,8 +45,11 @@ ax1.set_title("Comparison of helix assignments", weight='bold')
 ax1.set_ylabel("Fraction of secondary structure")
 ax1.grid(linewidth=0.5)
 plt.xticks(rotation=45)
+colors = ['k', 'k', 'k', 'k', 'k', 'k', 'k', 'r', 'r', 'k', 'k', 'r']
+for xtick, color in zip(ax1.get_xticklabels(), colors):
+    xtick.set_color(color)
 
-plt.savefig("Combined_GFs_helixAssignmentOnly.png", dpi=600)
+plt.savefig("Combined_GFs_helixAssignmentOnly_Fig7.png", dpi=600)
 
 
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, sharex=True, figsize=(13,9))
@@ -74,4 +76,4 @@ plt.xticks(rotation=45)
 plt.sca(ax3)
 plt.xticks(rotation=45)
 
-plt.savefig("Combined_GFs_other3DSSP.png", dpi=600)
+plt.savefig("Combined_GFs_other3DSSP_SupFigS5.png", dpi=600)
