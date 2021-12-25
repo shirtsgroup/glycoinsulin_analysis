@@ -37,10 +37,11 @@ if __name__ == "__main__":
     sys.extend([f"GF {i}" for i in range(2, 14)])
 
     ncolors = 3  # number of distinct colors
-    first_rgb = 10  # first value in rgb range
-    last_rgb = 100
-    cmap = plt.cm.Greens  # or whatever color map you choose from matplotlib
-    colors = np.array([cmap(i) for i in np.linspace(first_rgb, last_rgb, ncolors).astype(int)])
+    first_rgb = 80  # first value in rgb range
+    last_rgb = 10
+    cmap = plt.cm.spring  # or whatever color map you choose from matplotlib
+    #colors = np.array([cmap(i) for i in np.linspace(first_rgb, last_rgb, ncolors).astype(int)])
+    colors = np.array([cmap(i) for i in [40, 110, 180]])
 
     beta_all = []
     for i in range(len(folder)):
@@ -53,11 +54,13 @@ if __name__ == "__main__":
                 beta_GF.append(beta)
         beta_all.append(beta_GF)
 
-    upper_bounds = np.array([0.025, 100, 37, 101.5])    # upper bounds in x
-    lower_bounds = np.array([-0.006, -12, -5, 86])    # lower bounds in x
+    #upper_bounds = np.array([0.025, 100, 37, 101.5])    # upper bounds in x
+    #lower_bounds = np.array([-0.006, -12, -5, 86])    # lower bounds in x
+    upper_bounds = np.array([115, 115, 115, 115])
+    lower_bounds = np.array([-15, -15, -15, -15])
     ranges = upper_bounds - lower_bounds
-    annotate_x = [0.0163, 67, 24.5, 97.1]
-    adjust_x = [0.001, 3, 1, 0.25]
+    annotate_x = [76, 76, 76, 76]  # [0.0163, 67, 24.5, 97.1]
+    adjust_x = [3, 3, 3, 3]  # [0.001, 3, 1, 0.25]
     label_x = [-0.0055, -10, -4.5, 86.2]
 
     # Plot the correlation plots
@@ -74,43 +77,64 @@ if __name__ == "__main__":
         plt.subplot(2, 2, i + 1)
         for j in range(len(avg[i])):
             if j == 0:
-                plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='red', capsize=2)
-                plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, sys[j], weight='bold')
+                plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='red', capsize=2, label='WT')
+                plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.3, sys[j], weight='bold')
+                
             else:
-                plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='blue', capsize=2)
-                if i == 0 and (j == 2 or j == 5):
+                if j == 1:
+                    plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='blue', capsize=2, label='GF')
+                else:
+                    plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='blue', capsize=2)
+                pass_list_1 = [2, 3, 4, 5, 6]
+                pass_list_2 = [3, 6]
+                pass_list_3 = [3, 4, 6]
+                pass_list_4 = [3, 5, 6]
+                if i == 0 and j in pass_list_1:
                     pass
                 elif i == 0 and (j == 7):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 3, GF 6, GF 8')
-                
+                elif i == 0 and (j == 10):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
+                elif i == 0 and (j == 8):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 9')
+                elif i == 0 and (j == 11):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.5, 'GF 5, GF 12')
+
+
+                elif i == 1 and j in pass_list_2:
+                    pass
                 elif i == 1 and (j == 2):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 3')
                 elif i == 1 and (j == 5):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 6')
-                elif i == 1 and (j == 3 or j == 6):
-                    pass
                 elif i == 1 and (j == 10):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
                 
+                elif i == 2 and j in pass_list_3:
+                    pass
                 elif i == 2 and (j == 2):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 3')
-                elif i == 2 and (j == 3 or j == 6):
-                    pass
+                elif i == 2 and (j == 8):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 9')
                 elif i == 2 and (j == 10):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
-                
+                elif i == 2 and (j == 11):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 5, GF 12')
+
+                elif i == 3 and j in pass_list_4:
+                    pass
                 elif i == 3 and (j == 4):
                     plt.text(avg[i][j] - 4.5 * adjust_x[i], exp_h[j] + 0.2, 'GF 5')
                 elif i == 3 and (j == 8):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 9')
                 elif i == 3 and (j == 11):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 12')
-                elif i == 3 and (j == 3):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4')
                 elif i == 3 and (j == 10):
-                    plt.text(avg[i][j] - 2.5 * adjust_x[i], exp_h[j] + 0.2, 'GF 11')
+                    plt.text(avg[i][j] - 10 * adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
                 elif i == 3 and (j == 2):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 3')
+                elif i == 3 and (j == 7):
+                    plt.text(avg[i][j] - 2 * adjust_x[i], exp_h[j] + 0.2, 'GF 6, GF 8')
 
                 else:
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, sys[j])
@@ -119,19 +143,24 @@ if __name__ == "__main__":
         plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)
         plt.grid()    
     
-        plt.fill_between([lower_bounds[i], upper_bounds[i]], 2, 8, color=colors[0], alpha=0.8, zorder=0)
-        plt.fill_between([lower_bounds[i], upper_bounds[i]], 8, 12.5, color=colors[1], alpha=0.8, zorder=0)
-        plt.fill_between([lower_bounds[i], upper_bounds[i]], 12.5, 26, color=colors[2], alpha=0.8, zorder=0)
-        plt.text(label_x[i], 12.8, '(Longer)')
-        plt.text(label_x[i], 8.3, '(Comparable)')
-        plt.text(label_x[i], 2.8, '(Shorter)')
+        plt.fill_between([lower_bounds[i], upper_bounds[i]], 2, 8, color=colors[0], alpha=0.3, zorder=0)
+        plt.fill_between([lower_bounds[i], upper_bounds[i]], 8, 12.5, color=colors[1], alpha=0.3, zorder=0)
+        plt.fill_between([lower_bounds[i], upper_bounds[i]], 12.5, 26, color=colors[2], alpha=0.3, zorder=0)
+        #plt.text(label_x[i], 12.8, '(Longer)')
+        #plt.text(label_x[i], 8.3, '(Comparable)')
+        #plt.text(label_x[i], 2.8, '(Shorter)')
         plt.text(annotate_x[i], 24.6, r'($\tau=$' + f'{c_list[i]:.3f} $\pm$ {e_list[i]:.3f})')
         
         plt.xlim([lower_bounds[i], upper_bounds[i]])
         plt.ylim([2, 26])
+
+        if i == 3:
+            plt.legend(bbox_to_anchor=(0.23, 0.92))
+        else:
+            plt.legend(bbox_to_anchor=(0.98, 0.92))
     
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    plt.suptitle(r'Correlation b/w $\alpha$-chymotrypsin half-life and $\beta$-sheet propensity of P1$-$P3 region', weight='bold', size=15)
+    #plt.suptitle(r'Correlation b/w $\alpha$-chymotrypsin half-life and $\beta$-sheet propensity of P1$-$P3 region', weight='bold', size=15)
     plt.savefig('avg_beta_propensity_correlation.png', dpi=600)
     
     
