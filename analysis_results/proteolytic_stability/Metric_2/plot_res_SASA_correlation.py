@@ -70,10 +70,11 @@ if __name__ == "__main__":
     ]
 
     ncolors = 3  # number of distinct colors
-    first_rgb = 10  # first value in rgb range
-    last_rgb = 100
-    cmap = plt.cm.Greens  # or whatever color map you choose from matplotlib
-    colors = np.array([cmap(i) for i in np.linspace(first_rgb, last_rgb, ncolors).astype(int)])
+    first_rgb = 80  # first value in rgb range
+    last_rgb = 10
+    cmap = plt.cm.spring  # or whatever color map you choose from matplotlib
+    #colors = np.array([cmap(i) for i in np.linspace(first_rgb, last_rgb, ncolors).astype(int)])
+    colors = np.array([cmap(i) for i in [40, 110, 180]])  # different depths of green
 
     B24_sasa, B24_err, B25_sasa, B25_err = [], [], [], []
     if os.path.isfile(f'sasa_data.pickle') is True:
@@ -115,8 +116,11 @@ if __name__ == "__main__":
     plt.subplot(2, 1, 1)
     for i in range(len(B24_avg)):
         if i == 0:
-            plt.errorbar(B24_avg[i], exp_h[i], xerr=B24_std[i], yerr=exp_err[i], fmt="o", color='red', capsize=2)
+            plt.errorbar(B24_avg[i], exp_h[i], xerr=B24_std[i], yerr=exp_err[i], fmt="o", color='red', capsize=2, label='WT')
             plt.text(B24_avg[i] + 0.01, exp_h[i] + 0.1, sys[i], weight='bold')
+        elif i == 1:
+            plt.errorbar(B24_avg[i], exp_h[i], xerr=B24_std[i], yerr=exp_err[i], fmt="o", color='blue', capsize=2, label='GF')
+            plt.text(B24_avg[i] + 0.01, exp_h[i] + 0.1, sys[i])
         else:
             plt.errorbar(B24_avg[i], exp_h[i], xerr=B24_std[i], yerr=exp_err[i], fmt="o", color='blue', capsize=2)
             if i == 2:
@@ -126,9 +130,9 @@ if __name__ == "__main__":
             else:
                 plt.text(B24_avg[i] + 0.01, exp_h[i] + 0.1, sys[i])
 
-    plt.fill_between([0, 0.64], 2, 8, color=colors[0], alpha=0.8, zorder=0)
-    plt.fill_between([0, 0.64], 8, 12.5, color=colors[1], alpha=0.8, zorder=0)
-    plt.fill_between([0, 0.64], 12.5, 26, color=colors[2], alpha=0.8, zorder=0)
+    plt.fill_between([0, 0.64], 2, 8, color=colors[0], alpha=0.3, zorder=0)
+    plt.fill_between([0, 0.64], 8, 12.5, color=colors[1], alpha=0.3, zorder=0)
+    plt.fill_between([0, 0.64], 12.5, 26, color=colors[2], alpha=0.3, zorder=0)
     plt.text(0.01, 12.8, '(Longer half-life than WT)')
     plt.text(0.01, 8.3, '(Comparable half-life as WT)')
     plt.text(0.01, 2.8, '(Shorter half-life than WT)')
@@ -139,13 +143,20 @@ if __name__ == "__main__":
     plt.xlim([0, 0.63])
     plt.ylim([2, 26])
     plt.grid()
+    plt.legend(bbox_to_anchor=(0.98, 0.92))
+
+    plt.text(-0.05, 1.20, 'B', transform=plt.gca().transAxes,
+      fontsize=28, fontweight='bold', va='top', ha='right')
     
     # Figure 2
     plt.subplot(2, 1, 2)
     for i in range(len(B25_avg)):
         if i == 0:
-            plt.errorbar(B25_avg[i], exp_h[i], xerr=B25_std[i], yerr=exp_err[i], fmt="o", color='red', capsize=2)
+            plt.errorbar(B25_avg[i], exp_h[i], xerr=B25_std[i], yerr=exp_err[i], fmt="o", color='red', capsize=2, label='WT')
             plt.text(B25_avg[i] + 0.01, exp_h[i] + 0.1, sys[i], weight='bold')
+        elif i == 1:
+            plt.errorbar(B25_avg[i], exp_h[i], xerr=B25_std[i], yerr=exp_err[i], fmt="o", color='blue', capsize=2, label='GF')
+            plt.text(B25_avg[i] + 0.01, exp_h[i] + 0.1, sys[i])
         else:
             plt.errorbar(B25_avg[i], exp_h[i], xerr=B25_std[i], yerr=exp_err[i], fmt="o", color='blue', capsize=2)
             if i == 6:    
@@ -155,9 +166,9 @@ if __name__ == "__main__":
             else:  
                 plt.text(B25_avg[i] + 0.01, exp_h[i] + 0.1, sys[i])
 
-    plt.fill_between([0.95, 1.45], 2, 8, color=colors[0], alpha=0.8, zorder=0)
-    plt.fill_between([0.95, 1.45], 8, 12.5, color=colors[1], alpha=0.8, zorder=0)
-    plt.fill_between([0.95, 1.45], 12.5, 26, color=colors[2], alpha=0.8, zorder=0)
+    plt.fill_between([0.95, 1.45], 2, 8, color=colors[0], alpha=0.3, zorder=0)
+    plt.fill_between([0.95, 1.45], 8, 12.5, color=colors[1], alpha=0.3, zorder=0)
+    plt.fill_between([0.95, 1.45], 12.5, 26, color=colors[2], alpha=0.3, zorder=0)
     plt.text(0.955, 12.8, '(Longer half-life than WT)')
     plt.text(0.955, 8.3, '(Comparable half-life as WT)')
     plt.text(0.955, 2.8, '(Shorter half-life than WT)')
@@ -168,9 +179,10 @@ if __name__ == "__main__":
     plt.xlim([0.95, 1.43])
     plt.ylim([2, 26])
     plt.grid()
+    plt.legend(bbox_to_anchor=(0.98, 0.92))
   
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    plt.suptitle(r'Correlation b/w $\alpha$-chymotrypsin half-life and P1 site SASA', weight='bold', size=14)
+    plt.tight_layout()
+    #plt.suptitle(r'Correlation b/w $\alpha$-chymotrypsin half-life and P1 site SASA', weight='bold', size=14)
     plt.savefig('sasa_res_correlation.png', dpi=600)
 
     t2 = time.time()

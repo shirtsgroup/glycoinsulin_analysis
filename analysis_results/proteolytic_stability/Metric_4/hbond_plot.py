@@ -8,14 +8,17 @@ if __name__ == '__main__':
     sys = [f"GF {i}" for i in range(2, 14)]
     labels = [f'{sys[i]}\n({exp[i]})' for i in range(len(sys))]
 
+    cmap = plt.cm.spring  # or whatever color map you choose from matplotlib
+    colors = np.array([cmap(i) for i in [40, 110, 180]])  # different depths of green
+
     txt_colors = []
     for i in range(len(labels)):
         if "$+$" in labels[i]:
-            txt_colors.append('blue')
+            txt_colors.append(colors[2])
         elif r"$-$" in labels[i]:
-            txt_colors.append('red')
+            txt_colors.append(colors[1])
         else:
-            txt_colors.append('magenta')
+            txt_colors.append(colors[0])
 
     height = []
     height.append([0])              # GF 2
@@ -63,15 +66,15 @@ if __name__ == '__main__':
     hbond.append(['No H-bond'])         # GF 2
     hbond.append(['No H-bond'])         # GF 3
     hbond.append(['No H-bond'])         # GF 4
-    hbond.append(['Phe(B24)-GalNAc(1)'])  # GF 5
-    hbond.append(['Thr(B27)-GalNAc(1)'])  # GF 6
+    hbond.append(['PheB24(N)-GalNAc[1](O3)'])  # GF 5
+    hbond.append(['ThrB27(N)-GalNAc[1](O3)'])  # GF 6
     hbond.append(['No H-bond'])         # GF 7
     hbond.append(['No H-bond'])         # GF 8
-    hbond.append(['Phe(B24)-Man(1)', 'Tyr(B16)-Man(1)'])    # GF 9
-    hbond.append(['Thr(B27)-Man(2)', 'Phe(B24)-Man(1)', 'Tyr(B16)-Man(1)'])   # GF 10
+    hbond.append(['PheB24(N)-Man[1](O3)', 'TyrB16(OH)-Man[1](O4)'])    # GF 9
+    hbond.append(['ThrB27(N)-Man[2](O6)', 'PheB24(N)-Man[1](O3)', 'TyrB16(OH)-Man[1](O4)'])   # GF 10
     hbond.append(['No H-bond'])         # GF 11
-    hbond.append(['Thr(B30)-Man(2)'])   # GF 12
-    hbond.append(['Thr(B27)-Man(2)', 'Phe(B24)-Man(1)', 'Tyr(B16)-Man(1)', 'Thr(B27)-Man(3)'])
+    hbond.append(['ThrB30(N)-Man[2](O6)'])   # GF 12
+    hbond.append(['ThrB27(N)-Man[2](O6)', 'PheB24(N)-Man[1](O3)', 'TyrB16(OH)-Man[1](O4)', 'ThrB27(N)-Man[3](O6)'])
 
     all_heights, all_err, all_pos, all_hbonds = [], [], [], []
     for i in range(len(height)):
@@ -84,7 +87,7 @@ if __name__ == '__main__':
     # assign colors to different types of hbonds
     colors = []
     for i in range(len(all_hbonds)):
-        if 'Phe(B24)' in all_hbonds[i] or 'Thr(B27)' in all_hbonds[i]:
+        if 'PheB24' in all_hbonds[i] or 'ThrB27' in all_hbonds[i]:
             colors.append('blue')  # could be other color as needed 
         else:
             colors.append('black')
