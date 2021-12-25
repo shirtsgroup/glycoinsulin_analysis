@@ -39,5 +39,8 @@ ax1.grid(linewidth=0.5)
 
 plt.ylabel("Proportion of frames with Occlusion")
 plt.xticks(rotation=45)
+colors = ['k', 'k', 'k', 'k', 'k', 'k', 'k', 'r', 'r', 'k', 'k', 'r']
+for xtick, color in zip(ax1.get_xticklabels(), colors):
+    xtick.set_color(color)
 
 plt.savefig("Combined_GFs_comparisonOfOcclusion.png", dpi=600)
