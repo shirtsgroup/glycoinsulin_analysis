@@ -136,7 +136,7 @@ if __name__ == "__main__":
     plt.text(0.01, 12.8, '(Longer half-life than WT)')
     plt.text(0.01, 8.3, '(Comparable half-life as WT)')
     plt.text(0.01, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.76, 0.93, r'($\tau=$' + f'{c1:.3f} $\pm$ {e1:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.74, 0.93, r'($\tau=$' + f'{c1:.3f}, p={e1:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of residue B24 (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)
@@ -172,7 +172,7 @@ if __name__ == "__main__":
     plt.text(0.955, 12.8, '(Longer half-life than WT)')
     plt.text(0.955, 8.3, '(Comparable half-life as WT)')
     plt.text(0.955, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.76, 0.93, r'($\tau=$' + f'{c2:.3f} $\pm$ {e2:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.74, 0.93, r'($\tau=$' + f'{c2:.3f}, p={e2:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of residue B25 (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)

@@ -59,7 +59,7 @@ if __name__ == "__main__":
     upper_bounds = np.array([115, 115, 115, 115])
     lower_bounds = np.array([-15, -15, -15, -15])
     ranges = upper_bounds - lower_bounds
-    annotate_x = [76, 76, 76, 76]  # [0.0163, 67, 24.5, 97.1]
+    annotate_x = [74, 74, 74, 74]  # [0.0163, 67, 24.5, 97.1]
     adjust_x = [3, 3, 3, 3]  # [0.001, 3, 1, 0.25]
     label_x = [-0.0055, -10, -4.5, 86.2]
 
@@ -149,7 +149,7 @@ if __name__ == "__main__":
         #plt.text(label_x[i], 12.8, '(Longer)')
         #plt.text(label_x[i], 8.3, '(Comparable)')
         #plt.text(label_x[i], 2.8, '(Shorter)')
-        plt.text(annotate_x[i], 24.6, r'($\tau=$' + f'{c_list[i]:.3f} $\pm$ {e_list[i]:.3f})')
+        plt.text(annotate_x[i], 24.6, r'($\tau=$' + f'{c_list[i]:.3f}, p={e_list[i]:.3f})')
         
         plt.xlim([lower_bounds[i], upper_bounds[i]])
         plt.ylim([2, 26])
