@@ -130,7 +130,7 @@ if __name__ == "__main__":
     plt.text(0.023, 12.8, '(Longer half-life than WT)')
     plt.text(0.023, 8.3, '(Comparable half-life as WT)')
     plt.text(0.023, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.76, 0.93, r'($\tau=$' + f'{c1:.3f} $\pm$ {e1:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.74, 0.93, r'($\tau=$' + f'{c1:.3f}, p={e1:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of B25-B26 scissile bond (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)
@@ -161,7 +161,7 @@ if __name__ == "__main__":
     plt.text(0.003, 12.8, '(Longer half-life than WT)')
     plt.text(0.003, 8.3, '(Comparable half-life as WT)')
     plt.text(0.003, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.76, 0.93, r'($\tau=$' + f'{c2:.3f} $\pm$ {e2:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.74, 0.93, r'($\tau=$' + f'{c2:.3f}, p={e2:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of B26-B27 scissile bond (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)
