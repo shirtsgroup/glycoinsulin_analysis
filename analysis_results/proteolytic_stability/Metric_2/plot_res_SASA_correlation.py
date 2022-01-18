@@ -35,7 +35,7 @@ def sum_up_data(avg_data, std_data):
     return avg_all, std_all
 
 def read_experimental_data():
-    f = open('../experimental_data.txt')
+    f = open('../Exp_data/experimental_data.txt')
     lines = f.readlines()
     f.close()
 

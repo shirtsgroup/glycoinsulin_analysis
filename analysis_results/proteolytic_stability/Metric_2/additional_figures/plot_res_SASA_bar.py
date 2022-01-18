@@ -76,15 +76,15 @@ if __name__ == "__main__":
             colors.append('magenta')
 
     B24_sasa, B24_err, B25_sasa, B25_err = [], [], [], []
-    if os.path.isfile(f'sasa_data.pickle') is True:
+    if os.path.isfile(f'../sasa_data.pickle') is True:
         print('Found the pickled file of SASA data! Reading the data now ...')
-        with open('sasa_data.pickle', 'rb') as handle:
+        with open('../sasa_data.pickle', 'rb') as handle:
             sasa_data = pickle.load(handle)
             B24_sasa, B24_err, B25_sasa, B25_err = sasa_data[0], sasa_data[1], sasa_data[2], sasa_data[3]
     else:
         for folder in folders:
             for i in range(len(res)):
-                files = natsort.natsorted(glob.glob(f"{folder}/*sasa_res_{res[i]}.xvg"))
+                files = natsort.natsorted(glob.glob(f"../{folder}/*sasa_res_{res[i]}.xvg"))
 
                 avg_list, std_list = [], []
                 for f in files:
