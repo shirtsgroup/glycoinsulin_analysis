@@ -35,7 +35,7 @@ def sum_up_data(avg_data, std_data):
     return avg_all, std_all
 
 def read_experimental_data():
-    f = open('../experimental_data.txt')
+    f = open('../Exp_data/experimental_data.txt')
     lines = f.readlines()
     f.close()
 
@@ -63,10 +63,6 @@ if __name__ == "__main__":
     res = ["B25", "B26"]
     sys = ["WT"]
     sys.extend([f"GF {i}" for i in range(2, 14)])
-    y_labels = [
-        'SASA of B25 relative to WT (nm$^{2}$)',
-        'SASA of B26 relative to WT (nm$^{2}$)',
-    ]
 
     ncolors = 3  # number of distinct colors
     first_rgb = 80  # first value in rgb range
