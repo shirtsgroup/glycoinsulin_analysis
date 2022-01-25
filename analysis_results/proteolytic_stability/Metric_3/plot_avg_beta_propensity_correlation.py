@@ -10,7 +10,7 @@ from MDAnalysis.analysis import dihedrals
 from MDAnalysis.analysis.data.filenames import Rama_ref
 
 def read_experimental_data():
-    f = open('../experimental_data.txt')
+    f = open('../Exp_data/experimental_data.txt')
     lines = f.readlines()
     f.close()
 
@@ -75,6 +75,8 @@ if __name__ == "__main__":
     plt.figure(figsize=(10, 8))
     for i in range(4):    # 4 examined sites
         plt.subplot(2, 2, i + 1)
+        with open(f'beta_data_B{i + 22}.pickle', 'wb') as handle:
+            pickle.dump([avg[i], err[i]], handle, protocol=pickle.HIGHEST_PROTOCOL)
         for j in range(len(avg[i])):
             if j == 0:
                 plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='red', capsize=2, label='WT')
