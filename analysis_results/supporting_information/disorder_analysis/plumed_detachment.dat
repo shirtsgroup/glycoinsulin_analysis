@@ -1,0 +1,5 @@
+theta_1: ANGLE ATOMS=353,438,438,611                             # B1-B7 detachment
+theta_2: TORSION VECTOR1=353,204 AXIS=204,585 VECTOR2=585,526    # B1-B7 flipping
+theta_3: TORSION VECTOR1=164,269 AXIS=269,601 VECTOR2=601,684    # B20-B30 detachment
+
+PRINT ARG=theta_1,theta_2,theta_3 STRIDE=100 FILE=detachment.dat
