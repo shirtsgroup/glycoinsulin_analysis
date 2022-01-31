@@ -4,6 +4,7 @@ import glob
 import pickle
 import natsort
 import scipy
+import random
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
@@ -50,6 +51,38 @@ def read_experimental_data():
             err.append(data[i] - data[i - 1])
 
     return height, err
+
+def bootstrapping_normal(x, y, x_err, y_err, n_boot=500):
+    # Generate boostrap samples from a normal distribution
+    # Not used in the most recently updated code but we keep it here
+    r_list = []
+    for i in range(n_boot):
+        data_1, data_2 = [], []
+        for j in range(len(x)):
+            data_1.append(np.random.normal(x[j], x_err[j]))
+            data_2.append(np.random.normal(y[j], y_err[j]))
+        coef, p_val = scipy.stats.kendalltau(data_1, data_2)
+        r_list.append(coef)
+    
+    r = np.mean(r_list)
+    r_err = np.std(r_list)
+
+    return r, r_err
+
+def bootstrapping_sample(x_data, y_data):
+    # Boostrap over the data of 5 different WT models
+    x_data = np.transpose(x_data)   # should be (13, 5), or (n_variants, n_WTmodels)
+    r_list = []
+    for i in range(500):  # number of bootstrap
+        data = []
+        for j in range(len(x_data)):  # 13 variants:
+            data.append(np.mean(random.choices(x_data[j], k=len(x_data[j]))))
+        coef, p_val = scipy.stats.kendalltau(data, y_data)
+        r_list.append(coef)
+    r = np.mean(r_list)
+    r_err = np.std(r_list)
+
+    return r, r_err
 
 if __name__ == "__main__":
     t1 = time.time()
@@ -98,13 +131,13 @@ if __name__ == "__main__":
         with open('sasa_data.pickle', 'wb') as handle:
             pickle.dump(sasa_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-    # Plot the correlation plots
+    # Perform bootstrapping to estimate the the correlation coef and its uncertainty
     exp_h, exp_err = read_experimental_data()
     B25_avg, B25_std = sum_up_data(B25_sasa, B25_err)
     B26_avg, B26_std = sum_up_data(B26_sasa, B26_err)
 
-    c1, e1 = scipy.stats.kendalltau(B25_avg, exp_h)
-    c2, e2 = scipy.stats.kendalltau(B26_avg, exp_h)
+    c1, e1 = bootstrapping_sample(B25_sasa, exp_h)
+    c2, e2 = bootstrapping_sample(B26_sasa, exp_h)
 
     # Figure 1
     plt.figure(figsize=(6, 8))
@@ -126,7 +159,7 @@ if __name__ == "__main__":
     plt.text(0.023, 12.8, '(Longer half-life than WT)')
     plt.text(0.023, 8.3, '(Comparable half-life as WT)')
     plt.text(0.023, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.74, 0.93, r'($\tau=$' + f'{c1:.3f}, p={e1:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.76, 0.93, r'($\tau=$' + f'{c1:.3f} $\pm$ {e1:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of B25-B26 scissile bond (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)
@@ -157,7 +190,7 @@ if __name__ == "__main__":
     plt.text(0.003, 12.8, '(Longer half-life than WT)')
     plt.text(0.003, 8.3, '(Comparable half-life as WT)')
     plt.text(0.003, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.74, 0.93, r'($\tau=$' + f'{c2:.3f}, p={e2:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.76, 0.93, r'($\tau=$' + f'{c2:.3f} $\pm$ {e2:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of B26-B27 scissile bond (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)

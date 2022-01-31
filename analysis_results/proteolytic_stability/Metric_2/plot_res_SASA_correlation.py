@@ -51,6 +51,21 @@ def read_experimental_data():
 
     return height, err
 
+def correlation_bootstrapping(x, y, x_err, y_err, n_boot=500):
+    r_list = []
+    for i in range(n_boot):
+        data_1, data_2 = [], []
+        for j in range(len(x)):
+            data_1.append(np.random.normal(x[j], x_err[j]))
+            data_2.append(np.random.normal(y[j], y_err[j]))
+        coef, p_val = scipy.stats.kendalltau(data_1, data_2)
+        r_list.append(coef)
+    
+    r = np.mean(r_list)
+    r_err = np.std(r_list)
+
+    return r, r_err
+
 if __name__ == "__main__":
     t1 = time.time()
 
@@ -108,8 +123,8 @@ if __name__ == "__main__":
     B24_avg, B24_std = sum_up_data(B24_sasa, B24_err)
     B25_avg, B25_std = sum_up_data(B25_sasa, B25_err)
 
-    c1, e1 = scipy.stats.kendalltau(B24_avg, exp_h)
-    c2, e2 = scipy.stats.kendalltau(B25_avg, exp_h)
+    c1, e1 = correlation_bootstrapping(B24_avg, exp_h, B24_std, exp_err)
+    c2, e2 = correlation_bootstrapping(B25_avg, exp_h, B25_std, exp_err)
     
     # Figure 1
     plt.figure(figsize=(6, 8))
@@ -136,7 +151,7 @@ if __name__ == "__main__":
     plt.text(0.01, 12.8, '(Longer half-life than WT)')
     plt.text(0.01, 8.3, '(Comparable half-life as WT)')
     plt.text(0.01, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.74, 0.93, r'($\tau=$' + f'{c1:.3f}, p={e1:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.76, 0.93, r'($\tau=$' + f'{c1:.3f} $\pm$ {e1:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of residue B24 (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)
@@ -172,7 +187,7 @@ if __name__ == "__main__":
     plt.text(0.955, 12.8, '(Longer half-life than WT)')
     plt.text(0.955, 8.3, '(Comparable half-life as WT)')
     plt.text(0.955, 2.8, '(Shorter half-life than WT)')
-    plt.text(0.74, 0.93, r'($\tau=$' + f'{c2:.3f}, p={e2:.3f})', transform=plt.gca().transAxes)
+    plt.text(0.76, 0.93, r'($\tau=$' + f'{c2:.3f} $\pm$ {e2:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of residue B25 (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)

@@ -26,6 +26,21 @@ def read_experimental_data():
 
     return height, err
 
+def correlation_bootstrapping(x, y, x_err, y_err, n_boot=500):
+    r_list = []
+    for i in range(n_boot):
+        data_1, data_2 = [], []
+        for j in range(len(x)):
+            data_1.append(np.random.normal(x[j], x_err[j]))
+            data_2.append(np.random.normal(y[j], y_err[j]))
+        coef, p_val = scipy.stats.kendalltau(data_1, data_2)
+        r_list.append(coef)
+    
+    r = np.mean(r_list)
+    r_err = np.std(r_list)
+
+    return r, r_err
+
 if __name__ == "__main__":
     rc("font", **{"family": "sans-serif", "sans-serif": ["DejaVu Sans"], "size": 10})
     # Set the font used for MathJax - more on this later
@@ -59,7 +74,7 @@ if __name__ == "__main__":
     upper_bounds = np.array([115, 115, 115, 115])
     lower_bounds = np.array([-15, -15, -15, -15])
     ranges = upper_bounds - lower_bounds
-    annotate_x = [74, 74, 74, 74]  # [0.0163, 67, 24.5, 97.1]
+    annotate_x = [76, 76, 76, 76]  # [0.0163, 67, 24.5, 97.1]
     adjust_x = [3, 3, 3, 3]  # [0.001, 3, 1, 0.25]
     label_x = [-0.0055, -10, -4.5, 86.2]
 
@@ -68,7 +83,7 @@ if __name__ == "__main__":
     avg, err = np.mean(beta_all, axis=0), np.std(beta_all, axis=0)
     c_list, e_list = [], []  # Pearson correlation coefficients and the p-values
     for i in range(4):
-        c, e = scipy.stats.pearsonr(avg[i], exp_h)
+        c, e = correlation_bootstrapping(avg[i], exp_h, err[i], exp_err)
         c_list.append(c)
         e_list.append(e)
     
@@ -151,7 +166,7 @@ if __name__ == "__main__":
         #plt.text(label_x[i], 12.8, '(Longer)')
         #plt.text(label_x[i], 8.3, '(Comparable)')
         #plt.text(label_x[i], 2.8, '(Shorter)')
-        plt.text(annotate_x[i], 24.6, r'($\tau=$' + f'{c_list[i]:.3f}, p={e_list[i]:.3f})')
+        plt.text(annotate_x[i], 24.6, r'($\tau=$' + f'{c_list[i]:.3f} $\pm$ {e_list[i]:.3f})')
         
         plt.xlim([lower_bounds[i], upper_bounds[i]])
         plt.ylim([2, 26])
