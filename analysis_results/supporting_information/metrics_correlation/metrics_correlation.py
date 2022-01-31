@@ -11,6 +11,21 @@ def read_pickled_data(path):
         data = pickle.load(handle)
     return data
 
+def correlation_bootstrapping(x, y, x_err, y_err, n_boot=500):
+    r_list = []
+    for i in range(n_boot):
+        data_1, data_2 = [], []
+        for j in range(len(x)):
+            data_1.append(np.random.normal(x[j], x_err[j]))
+            data_2.append(np.random.normal(y[j], y_err[j]))
+        coef, p_val = scipy.stats.pearsonr(data_1, data_2)
+        r_list.append(coef)
+    
+    r = np.mean(r_list)
+    r_err = np.std(r_list)
+
+    return r, r_err
+
 if __name__ == "__main__":
     t1 = time.time()
     # Note that this code can only works when the pickled data are present in the folders Metric_1, Metric_2, and Metric_3
@@ -64,11 +79,12 @@ if __name__ == "__main__":
     for p in pairs:
         print(f'\nPlotting {var_list[p[0]][0]} against {var_list[p[1]][0]} ...')
         # coef, p_val = scipy.stats.kendalltau(data_all[p[0]], data_all[p[1]])
-        coef, p_val = scipy.stats.pearsonr(data_all[p[0]], data_all[p[1]])
+        r, r_err = correlation_bootstrapping(data_all[p[0]], data_all[p[1]], err_all[p[0]], err_all[p[1]])
         plt.figure()
         for i in range(13):
             plt.errorbar(data_all[p[0]][i], data_all[p[1]][i], xerr=err_all[p[0]][i], yerr=err_all[p[1]][i], fmt="o", capsize=2, color=colors[i], label=labels[i])
-        plt.text(0.02, 0.95, r'(r=' + f'{coef:.3f}, p={p_val:.3f})', transform=plt.gca().transAxes)
+        #plt.text(0.02, 0.95, r'(r=' + f'{coef:.3f}, p={p_val:.3f})', transform=plt.gca().transAxes)
+        plt.text(0.02, 0.95, f'r={r:.3f} $\pm$ {r_err:.3f}', transform=plt.gca().transAxes)
         plt.xlabel(var_list[p[0]][0])
         plt.ylabel(var_list[p[1]][0])
         plt.grid()
@@ -80,4 +96,4 @@ if __name__ == "__main__":
     t2 = time.time()
     print(f'\nTime elapsed: {t2 - t1:.1f} seconds.')
 
-    
+export CMAKE_LIBRARY_PATH="/home/wei-tse/Documents/Software/PLUMED/plumed2_build/:$CMAKE_LIBRARY_PATH"
