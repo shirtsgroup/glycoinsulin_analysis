@@ -1,6 +1,7 @@
 import glob
 import pickle
 import natsort
+import random
 import scipy.stats
 import matplotlib.pyplot as plt
 import numpy as np
@@ -36,6 +37,21 @@ def correlation_bootstrapping(x, y, x_err, y_err, n_boot=500):
         coef, p_val = scipy.stats.kendalltau(data_1, data_2)
         r_list.append(coef)
     
+    r = np.mean(r_list)
+    r_err = np.std(r_list)
+
+    return r, r_err
+
+def bootstrapping_sample(x_data, y_data):
+    # Boostrap over the data of 5 different WT models
+    x_data = np.transpose(x_data)   # should be (13, 5), or (n_variants, n_WTmodels)
+    r_list = []
+    for i in range(500):  # number of bootstrap
+        data = []
+        for j in range(len(x_data)):  # 13 variants:
+            data.append(np.mean(random.choices(x_data[j], k=len(x_data[j]))))
+        coef, p_val = scipy.stats.kendalltau(data, y_data)
+        r_list.append(coef)
     r = np.mean(r_list)
     r_err = np.std(r_list)
 
