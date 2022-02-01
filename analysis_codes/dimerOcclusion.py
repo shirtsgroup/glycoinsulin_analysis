@@ -161,4 +161,8 @@ for i in range(num_of_frames):
 workbook.close()
 
 elapsed_time = time.time() - start_time
+<<<<<<< HEAD
 print(time.strftime("%H:%M:%S", time.gmtime(elapsed_time)))
+=======
+print(time.strftime("%H:%M:%S", time.gmtime(elapsed_time)))
+>>>>>>> d298c0e3477e4cadd6ddf9852d9e8a6d49cb7ed8
