@@ -132,6 +132,7 @@ if __name__ == "__main__":
             pickle.dump(sasa_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     # Perform bootstrapping to estimate the the correlation coef and its uncertainty
+    random.seed(2021)
     exp_h, exp_err = read_experimental_data()
     B25_avg, B25_std = sum_up_data(B25_sasa, B25_err)
     B26_avg, B26_std = sum_up_data(B26_sasa, B26_err)
