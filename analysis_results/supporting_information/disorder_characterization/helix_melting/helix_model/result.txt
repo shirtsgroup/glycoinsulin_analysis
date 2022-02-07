@@ -1,0 +1,23 @@
+charge not defined for particle type bb using default charge: 0.0 e
+charge not defined for particle type sc using default charge: 0.0 e
+Warning: No default_torsion_phase_angle: setting to 0.0 deg
+No bond_force_constants definition provided for 'bb_sc_bond_force_constant', setting to 0 kJ/(nm**2 mol)
+No bond_lengths definition provided for 'bb_sc_bond_length', setting to 2.44 A
+No bond_force_constants definition provided for 'bb_bb_bond_force_constant', setting to 0 kJ/(nm**2 mol)
+No bond_lengths definition provided for 'bb_bb_bond_length', setting to 2.44 A
+No bond_angle_force_constants definition provided for 'sc_bb_bb_bond_angle_force_constant', setting to 0 kJ/(mol rad**2)
+No equil_bond_angles definition provided for 'sc_bb_bb_equil_bond_angle', setting to 127.5 deg
+No bond_angle_force_constants definition provided for 'bb_bb_bb_bond_angle_force_constant', setting to 0 kJ/(mol rad**2)
+No torsion_force_constants definition provided for 'sc_bb_bb_sc_torsion_force_constant', setting to 0.0 kJ/mol
+No torsion_periodicities definition provided for 'sc_bb_bb_sc_torsion_periodicity', setting to 1
+No torsion_force_constants definition provided for 'bb_bb_bb_bb_torsion_force_constant', setting to 0.0 kJ/mol
+No torsion_periodicities definition provided for 'bb_bb_bb_bb_torsion_periodicity', setting to 1
+No torsion_force_constants definition provided for 'bb_bb_bb_sc_torsion_force_constant', setting to 0.0 kJ/mol
+No torsion_periodicities definition provided for 'bb_bb_bb_sc_torsion_periodicity', setting to 1
+     fun: -40.2979588411533
+ message: 'Optimization terminated successfully.'
+    nfev: 1603
+     nit: 15
+ success: True
+       x: array([5.82080412, 6.6985228 ])
+{'sigma_bb': Quantity(value=5.820804122485187, unit=angstrom), 'sigma_sc': Quantity(value=6.698522798227941, unit=angstrom), 'helical_radius': Quantity(value=2.3, unit=angstrom), 'particle_spacing': Quantity(value=1.7215595076646073, unit=radian), 'pitch': Quantity(value=5.5, unit=angstrom), 'bb_bb_distance': Quantity(value=3.7999999999999927, unit=angstrom), 'bb_sc_distance': Quantity(value=3.8, unit=angstrom), 'bb_bb_bb_angle': Quantity(value=91.75907, unit=degree), 'bb_bb_sc_angle': Quantity(value=134.12047, unit=degree), 'bb_bb_bb_bb_angle': Quantity(value=49.534065, unit=degree), 'sc_bb_bb_sc_angle': Quantity(value=49.53407, unit=degree), 'bb_bb_bb_sc_angle': Quantity(value=-130.46593, unit=degree)}
