@@ -5,6 +5,7 @@ import numpy as np
 from matplotlib import rc 
 import matplotlib.gridspec as gridspec
 
+"""
 def logger(*args, **kwargs):
     print(*args, **kwargs)
     with open('transition_frames.txt', "a") as f:
@@ -25,6 +26,7 @@ def locate_transition(xpm_data, w):
     transition = idx * (2000 / (len(xpm_data) - 1))  # ns
 
     return transition, std_ratio
+"""
 
 if __name__ == "__main__":
     t1 = time.time()
@@ -51,8 +53,9 @@ if __name__ == "__main__":
         data = gmx.fileformats.xpm.XPM(xpm)
         rmsd = data.array.astype('float64')
 
+        """
         # Identify the time frame where the transition occurred
-        w = 100
+        # w = 100
         t, std_ratio = locate_transition(rmsd, w=w_size[i])
         logger(f'{sys[i].upper()}: The largest transition between states occurred at {t} ns.')
 
@@ -74,6 +77,7 @@ if __name__ == "__main__":
 
         plt.tight_layout()
         plt.savefig(f'RMSD_initial_structure/{sys[i]}_rmsd_initial_structure.png', dpi=600)
+        """
 
         # plot pairwise RMSD
         ax = fig.add_subplot(specs[i])
