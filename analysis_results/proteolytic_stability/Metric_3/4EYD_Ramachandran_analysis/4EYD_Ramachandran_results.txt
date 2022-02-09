@@ -1,85 +1,90 @@
 
 Command line: Ramachandran_analysis.py -r 43 44 45 46 -d 4EYD_Ramachandran_analysis/
-Reading the trajectories from 4eyd_trajs.pickle...
 
-Starting analyzing residue 43 ...
-==================================
-Reading the Ramachandran plot data from 4eyd_rama_res43.pickle ...
+Reading in the trajectories and saving 4eyd_trajs.pickle ...
+
+Start analyzing residue 43 ...
+===============================
+Generating Ramchandran plot data and saving as 4eyd_rama_res43.pickle ...
+Residue of interest: ARG B22
 Plotting Ramachandran plots ...
-Calcuting the percentage of the poitns in the beta-sheet region ...
+Calculating the percentage of the poitns in the beta-sheet region ...
 
-Beta-sheet fraction of residue B22 in WT: 0.01%
-Beta-sheet fraction of residue B22 in GF 2: 0.00%
-Beta-sheet fraction of residue B22 in GF 3: 0.00%
-Beta-sheet fraction of residue B22 in GF 4: 0.00%
-Beta-sheet fraction of residue B22 in GF 5: 0.00%
-Beta-sheet fraction of residue B22 in GF 6: 0.02%
-Beta-sheet fraction of residue B22 in GF 7: 0.02%
-Beta-sheet fraction of residue B22 in GF 8: 0.01%
+Beta-sheet fraction of residue B22 in WT: 28.83%
+Beta-sheet fraction of residue B22 in GF 2: 20.57%
+Beta-sheet fraction of residue B22 in GF 3: 33.25%
+Beta-sheet fraction of residue B22 in GF 4: 55.01%
+Beta-sheet fraction of residue B22 in GF 5: 85.31%
+Beta-sheet fraction of residue B22 in GF 6: 18.90%
+Beta-sheet fraction of residue B22 in GF 7: 87.63%
+Beta-sheet fraction of residue B22 in GF 8: 74.87%
 Beta-sheet fraction of residue B22 in GF 9: 0.00%
 Beta-sheet fraction of residue B22 in GF 10: 0.00%
-Beta-sheet fraction of residue B22 in GF 11: 0.01%
-Beta-sheet fraction of residue B22 in GF 12: 0.00%
-Beta-sheet fraction of residue B22 in GF 13: 0.00%
+Beta-sheet fraction of residue B22 in GF 11: 24.35%
+Beta-sheet fraction of residue B22 in GF 12: 4.61%
+Beta-sheet fraction of residue B22 in GF 13: 76.62%
 
-Starting analyzing residue 44 ...
-==================================
-Reading the Ramachandran plot data from 4eyd_rama_res44.pickle ...
+Start analyzing residue 44 ...
+===============================
+Generating Ramchandran plot data and saving as 4eyd_rama_res44.pickle ...
+Residue of interest: GLY B23
 Plotting Ramachandran plots ...
-Calcuting the percentage of the poitns in the beta-sheet region ...
+Calculating the percentage of the poitns in the beta-sheet region ...
 
-Beta-sheet fraction of residue B23 in WT: 28.83%
-Beta-sheet fraction of residue B23 in GF 2: 20.57%
-Beta-sheet fraction of residue B23 in GF 3: 33.25%
-Beta-sheet fraction of residue B23 in GF 4: 55.01%
-Beta-sheet fraction of residue B23 in GF 5: 85.31%
-Beta-sheet fraction of residue B23 in GF 6: 18.90%
-Beta-sheet fraction of residue B23 in GF 7: 87.63%
-Beta-sheet fraction of residue B23 in GF 8: 74.87%
+Beta-sheet fraction of residue B23 in WT: 14.44%
+Beta-sheet fraction of residue B23 in GF 2: 9.45%
+Beta-sheet fraction of residue B23 in GF 3: 11.92%
+Beta-sheet fraction of residue B23 in GF 4: 28.06%
+Beta-sheet fraction of residue B23 in GF 5: 28.92%
+Beta-sheet fraction of residue B23 in GF 6: 8.09%
+Beta-sheet fraction of residue B23 in GF 7: 35.61%
+Beta-sheet fraction of residue B23 in GF 8: 28.97%
 Beta-sheet fraction of residue B23 in GF 9: 0.00%
 Beta-sheet fraction of residue B23 in GF 10: 0.00%
-Beta-sheet fraction of residue B23 in GF 11: 24.35%
-Beta-sheet fraction of residue B23 in GF 12: 4.61%
-Beta-sheet fraction of residue B23 in GF 13: 76.62%
+Beta-sheet fraction of residue B23 in GF 11: 6.66%
+Beta-sheet fraction of residue B23 in GF 12: 3.11%
+Beta-sheet fraction of residue B23 in GF 13: 30.47%
 
-Starting analyzing residue 45 ...
-==================================
-Reading the Ramachandran plot data from 4eyd_rama_res45.pickle ...
+Start analyzing residue 45 ...
+===============================
+Generating Ramchandran plot data and saving as 4eyd_rama_res45.pickle ...
+Residue of interest: PHE B24
 Plotting Ramachandran plots ...
-Calcuting the percentage of the poitns in the beta-sheet region ...
+Calculating the percentage of the poitns in the beta-sheet region ...
 
-Beta-sheet fraction of residue B24 in WT: 14.44%
-Beta-sheet fraction of residue B24 in GF 2: 9.45%
-Beta-sheet fraction of residue B24 in GF 3: 11.92%
-Beta-sheet fraction of residue B24 in GF 4: 28.06%
-Beta-sheet fraction of residue B24 in GF 5: 28.92%
-Beta-sheet fraction of residue B24 in GF 6: 8.09%
-Beta-sheet fraction of residue B24 in GF 7: 35.61%
-Beta-sheet fraction of residue B24 in GF 8: 28.97%
-Beta-sheet fraction of residue B24 in GF 9: 0.00%
-Beta-sheet fraction of residue B24 in GF 10: 0.00%
-Beta-sheet fraction of residue B24 in GF 11: 6.66%
-Beta-sheet fraction of residue B24 in GF 12: 3.11%
-Beta-sheet fraction of residue B24 in GF 13: 30.47%
+Beta-sheet fraction of residue B24 in WT: 94.25%
+Beta-sheet fraction of residue B24 in GF 2: 90.08%
+Beta-sheet fraction of residue B24 in GF 3: 96.81%
+Beta-sheet fraction of residue B24 in GF 4: 86.20%
+Beta-sheet fraction of residue B24 in GF 5: 87.78%
+Beta-sheet fraction of residue B24 in GF 6: 88.46%
+Beta-sheet fraction of residue B24 in GF 7: 96.08%
+Beta-sheet fraction of residue B24 in GF 8: 96.25%
+Beta-sheet fraction of residue B24 in GF 9: 96.44%
+Beta-sheet fraction of residue B24 in GF 10: 97.88%
+Beta-sheet fraction of residue B24 in GF 11: 97.10%
+Beta-sheet fraction of residue B24 in GF 12: 92.85%
+Beta-sheet fraction of residue B24 in GF 13: 97.60%
 
-Starting analyzing residue 46 ...
-==================================
-Reading the Ramachandran plot data from 4eyd_rama_res46.pickle ...
+Start analyzing residue 46 ...
+===============================
+Generating Ramchandran plot data and saving as 4eyd_rama_res46.pickle ...
+Residue of interest: PHE B25
 Plotting Ramachandran plots ...
-Calcuting the percentage of the poitns in the beta-sheet region ...
+Calculating the percentage of the poitns in the beta-sheet region ...
 
-Beta-sheet fraction of residue B25 in WT: 94.25%
-Beta-sheet fraction of residue B25 in GF 2: 90.08%
-Beta-sheet fraction of residue B25 in GF 3: 96.81%
-Beta-sheet fraction of residue B25 in GF 4: 86.20%
-Beta-sheet fraction of residue B25 in GF 5: 87.78%
-Beta-sheet fraction of residue B25 in GF 6: 88.46%
-Beta-sheet fraction of residue B25 in GF 7: 96.08%
-Beta-sheet fraction of residue B25 in GF 8: 96.25%
-Beta-sheet fraction of residue B25 in GF 9: 96.44%
-Beta-sheet fraction of residue B25 in GF 10: 97.88%
-Beta-sheet fraction of residue B25 in GF 11: 97.10%
-Beta-sheet fraction of residue B25 in GF 12: 92.85%
-Beta-sheet fraction of residue B25 in GF 13: 97.60%
+Beta-sheet fraction of residue B25 in WT: 24.42%
+Beta-sheet fraction of residue B25 in GF 2: 47.48%
+Beta-sheet fraction of residue B25 in GF 3: 51.36%
+Beta-sheet fraction of residue B25 in GF 4: 31.97%
+Beta-sheet fraction of residue B25 in GF 5: 14.47%
+Beta-sheet fraction of residue B25 in GF 6: 27.88%
+Beta-sheet fraction of residue B25 in GF 7: 58.16%
+Beta-sheet fraction of residue B25 in GF 8: 41.22%
+Beta-sheet fraction of residue B25 in GF 9: 17.11%
+Beta-sheet fraction of residue B25 in GF 10: 13.75%
+Beta-sheet fraction of residue B25 in GF 11: 60.88%
+Beta-sheet fraction of residue B25 in GF 12: 0.31%
+Beta-sheet fraction of residue B25 in GF 13: 1.71%
 
-Elapsed time: 30.231152534484863 seconds.
+Elapsed time: 1065.0638806819916 seconds.
