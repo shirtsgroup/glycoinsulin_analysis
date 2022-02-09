@@ -1,21 +1,19 @@
-import argparse
-import os
-import pickle
-import sys
 import time
-import warnings
-
-import matplotlib.pyplot as plt
-import MDAnalysis as mda
 import numpy as np
-from matplotlib import rc
+import warnings
+import MDAnalysis as mda
+import matplotlib.pyplot as plt
 from matplotlib.path import Path
 from MDAnalysis.analysis import dihedrals
 from MDAnalysis.analysis.data.filenames import Rama_ref
+from prettytable import PrettyTable
+
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 def logger(*args, **kwargs):
     print(*args, **kwargs)
-    with open('Rama_transition_analysis_results.txt', "a") as f:
+    with open('rama_transition_analysis_results.txt', "a") as f:
         print(file=f, *args, **kwargs)
 
 class RamachandranAnalyzer:
@@ -53,46 +51,64 @@ class RamachandranAnalyzer:
             verts.append((x[i], y[i]))
         self.beta_region = Path(verts)
 
-    def beta_sheet_fraction(self, rama_obj):
+    def beta_sheet_fraction(self, rama_points):
         """
         Parameters
         ----------
-        rama_obj (MDAnalysis object):
-            An MDAnalysis.analysis.dihedrals.Ramachandran object generated 
-            by dihedrals.Ramachandran(region).run()
+        rama_points (np.ndarray): 
+            An N by 2 numpy array containing the coordinates of the points to be checked.
 
         Returns
         -------
         beta_frac (float): The percentage of the points in the beta-sheet region.
         """
-        angles = rama_obj.angles
-        n1, n2, n3 = angles.shape
-        angles = angles.reshape(n1* n2, n3)
-
-        grid = self.beta_region.contains_points(angles)  # len: n_frrames
+        grid = self.beta_region.contains_points(rama_points)  # len: n_frrames
         beta_fractions = np.sum(grid) / len(grid) * 100
 
         return beta_fractions
 
 
-
 if __name__ == "__main__":
     t1 = time.time()
 
-    trajs = []
-    trajs.append("../../../wildtype_insulin/4EY9/pH_8.0/Analysis/4ey9_dt250.pdb")
-    trajs.append("../../../wildtype_insulin/4EY1/pH_7.9/Analysis/4ey1_dt250.pdb")
-    trajs.append("../../../wildtype_insulin/3I3Z/pH_6.9/Analysis/3i3z_dt250.pdb")
-    trajs.append("../../../wildtype_insulin/2MVC/pH_7.3/Analysis/2mvc_dt250.pdb")
+    trajs = []  # working directory: /ocean/projects/cts160011p/wehs7661/Glycoinsulin_project/wildtype_insulin
+    trajs.append("4EY9/pH_8.0/Analysis/4ey9_dt250.pdb")
+    trajs.append("4EY1/pH_7.9/Analysis/4ey1_dt250.pdb")
+    trajs.append("3I3Z/pH_6.9/Analysis/3i3z_dt250.pdb")
+    trajs.append("2MVC/pH_7.3/Analysis/2mvc_dt250.pdb")
 
-    state_A, state_B, overall = [], [], []
+    sys = ['4EY9', '4EY1', '3I3Z', '2MVC']
+
+    change_loc = [621.25, 1120.0, 652.5, 1477.5]   # 4EY9, 4EY1, 3I3Z, and 2MVC
+    change_idx = [int(change_loc[i] / 0.25) + 1 for i in range(len(change_loc))]  # dt = 250 ps
+
+    logger('[Beta-sheet propensity for each state of 4 wild-type insulin models]')
     RA = RamachandranAnalyzer()
     for i in range(len(trajs)):
+        logger(f'({i + 1}) Wild-type model: {sys[i]} (Change point: {change_loc[i]} ns)')
+        # One table for each WT variant
+        x = PrettyTable()
+        x.add_column('-', ['State A', 'State B', 'Overall'])
+
         u = mda.Universe(trajs[i])
         for j in range(43, 47):   # residues 43 to 47
             region = u.select_atoms(f"resid {j}")
             rama = dihedrals.Ramachandran(region).run()
             angles = rama.angles
-            f = RA.beta_sheet_fraction(rama)  # beta-sheet propensity
+            n1, n2, n3 = angles.shape  # n1: n_frames, n2: n_residues, n3=2
+            angles = angles.reshape(n1 * n2, n3)
+            angles_A = angles[:change_idx[i]]
+            angles_B = angles[change_idx[i]:]
+
+            # Calculate beta-sheet propensity
+            f = RA.beta_sheet_fraction(angles)  
+            f_A = RA.beta_sheet_fraction(angles_A)
+            f_B = RA.beta_sheet_fraction(angles_B)
+
+            x.add_column(f'Residue B{j - 21}', [f'{f_A:.2f}%', f'{f_B:.2f}%', f'{f:.2f}%'])
+        
+        logger(x)
+        logger('\n')
 
     t2 = time.time()
+    logger(f'Time elapsed: {t2 - t1:.2f} seconds.')

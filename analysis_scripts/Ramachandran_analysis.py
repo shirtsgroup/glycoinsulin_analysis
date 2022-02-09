@@ -100,23 +100,18 @@ class RamachandranAnalyzer:
             verts.append((x[i], y[i]))
         self.beta_region = Path(verts)
 
-    def beta_sheet_fraction(self, rama_obj):
+    def beta_sheet_fraction(self, rama_points):
         """
         Parameters
         ----------
-        rama_obj (MDAnalysis object):
-            An MDAnalysis.analysis.dihedrals.Ramachandran object generated 
-            by dihedrals.Ramachandran(region).run()
+        rama_points (np.ndarray): 
+            An N by 2 numpy array containing the coordinates of the points to be checked.
 
         Returns
         -------
         beta_frac (float): The percentage of the points in the beta-sheet region.
         """
-        angles = rama_obj.angles
-        n1, n2, n3 = angles.shape
-        angles = angles.reshape(n1* n2, n3)
-
-        grid = self.beta_region.contains_points(angles)  # len: n_frrames
+        grid = self.beta_region.contains_points(rama_points)  # len: n_frrames
         beta_fractions = np.sum(grid) / len(grid) * 100
 
         return beta_fractions
@@ -280,7 +275,10 @@ if __name__ == "__main__":
                 missing.append(sys[i])
                 L.logger(f"The trajectory data of {sys[i]} is missing.")
             else:
-                f = RA.beta_sheet_fraction(rama_data[i])
+                angles = rama_data[i].angles
+                n1, n2, n3 = angles.shape  # n1: n_frames, n2: n_residues, n3=2
+                angles = angles.reshape(n1 * n2, n3)
+                f = RA.beta_sheet_fraction(angles)
                 beta_fractions.append(f)
                 L.logger(
                     f"Beta-sheet fraction of residue B{r - 21} in {sys[i]}: {f:.2f}%"

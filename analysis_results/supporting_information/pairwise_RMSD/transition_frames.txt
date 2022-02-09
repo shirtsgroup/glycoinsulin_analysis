@@ -1,5 +1,0 @@
-4EYD: The largest transition between states occurred at 1238.0 ns.
-4EY9: The largest transition between states occurred at 1600.25 ns.
-4EY1: The largest transition between states occurred at 441.25 ns.
-3I3Z: The largest transition between states occurred at 656.75 ns.
-2MVC: The largest transition between states occurred at 30.0 ns.
