@@ -27,7 +27,15 @@ def read_experimental_data():
 
     return height, err
 
-def correlation_bootstrapping(x, y, x_err, y_err, n_boot=500):
+def bootstrapping_normal(x, y, x_err, y_err, n_boot=500):
+    """
+    This function generates bootstrap samples for x and y data by drawing 
+    samples from normal distributions centered at the means of x and y data
+    to calculate the correlation coefficient and its uncertainty.
+
+    Note that this method is not used in the most updated code but we keep
+    here as a record.
+    """
     r_list = []
     for i in range(n_boot):
         data_1, data_2 = [], []
@@ -42,20 +50,35 @@ def correlation_bootstrapping(x, y, x_err, y_err, n_boot=500):
 
     return r, r_err
 
-def bootstrapping_sample(x_data, y_data):
+def bootstrapping_sample(x_data, y_mean, y_err, n_boot=500):
+    """
+    This functions bootstraps over the raw data of x (e.g. computational values)
+    and a normal distribution centered at the mean of y (e.g. experimental values)
+    to calcualte the uncertainty of the correlation coefficient.
+
+    Parameters
+    ----------
+    x (array-like): 
+        The raw data of x. Should be in the shape of (n_variants, n_WTmodels)
+    y_mean (array-like): 
+        The experimental data. The length should be 13. 
+    y_err (array-like): 
+        The uncertainty of the experimental data points. The length should be 13
+    """
     # Boostrap over the data of 5 different WT models
     x_data = np.transpose(x_data)   # should be (13, 5), or (n_variants, n_WTmodels)
     r_list = []
-    for i in range(500):  # number of bootstrap
-        data = []
+    for i in range(n_boot):  # number of bootstrap
+        xx, yy = [], []   # bootstrap samples for variables x and y
         for j in range(len(x_data)):  # 13 variants:
-            data.append(np.mean(random.choices(x_data[j], k=len(x_data[j]))))
-        coef, p_val = scipy.stats.kendalltau(data, y_data)
+            xx.append(np.mean(random.choices(x_data[j], k=len(x_data[j]))))
+            yy.append(np.mean(np.random.normal(y_mean[j], y_err[j], len(x_data[j]))))
+        coef, p_val = scipy.stats.kendalltau(xx, yy)
         r_list.append(coef)
-    r = np.mean(r_list)
-    r_err = np.std(r_list)
+    # r = np.mean(r_list)
+    r_err = np.std(r_list)  # we only use bootstrapping to calculate the uncertainty here
 
-    return r, r_err
+    return r_err
 
 if __name__ == "__main__":
     rc("font", **{"family": "sans-serif", "sans-serif": ["DejaVu Sans"], "size": 10})
@@ -84,6 +107,7 @@ if __name__ == "__main__":
                 beta = pickle.load(handle)  # a list of 13 beta fractions
                 beta_GF.append(beta)
         beta_all.append(beta_GF)
+    beta_all = np.array(beta_all)   # shape (5, 4, 13)
 
     #upper_bounds = np.array([0.025, 100, 37, 101.5])    # upper bounds in x
     #lower_bounds = np.array([-0.006, -12, -5, 86])    # lower bounds in x
@@ -94,12 +118,17 @@ if __name__ == "__main__":
     adjust_x = [3, 3, 3, 3]  # [0.001, 3, 1, 0.25]
     label_x = [-0.0055, -10, -4.5, 86.2]
 
-    # Plot the correlation plots
+    # Plot the correlation plots and perform bootstrapping
+    random.seed(2021)
+    np.random.seed(2021)
     exp_h, exp_err = read_experimental_data()
     avg, err = np.mean(beta_all, axis=0), np.std(beta_all, axis=0)
-    c_list, e_list = [], []  # Pearson correlation coefficients and the p-values
+    
+    c_list, e_list = [], []
     for i in range(4):
-        c, e = correlation_bootstrapping(avg[i], exp_h, err[i], exp_err)
+        # Note that the shape of beta_all is (5, 4, 13), so beta_all[:, i, :] is in shape of (5, 13)
+        c, _ = scipy.stats.kendalltau(avg[i], exp_h)
+        e = bootstrapping_sample(beta_all[:, i, :], exp_h, exp_err)
         c_list.append(c)
         e_list.append(e)
     
@@ -114,60 +143,58 @@ if __name__ == "__main__":
                 plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.3, sys[j], weight='bold')
                 
             else:
-                if j == 1:
+                if j == 1:  # just to separate different legends (WT and GF)
                     plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='blue', capsize=2, label='GF')
                 else:
                     plt.errorbar(avg[i][j], exp_h[j], xerr=err[i][j], yerr=exp_err[j], fmt="o", color='blue', capsize=2)
-                pass_list_1 = [2, 3, 4, 5, 6]
-                pass_list_2 = [3, 6]
-                pass_list_3 = [3, 4, 6]
-                pass_list_4 = [3, 5, 6]
+                
+                pass_list_1 = [3, 6]
+                pass_list_2 = [3, 4, 6]
+                pass_list_3 = [3, 5, 6]
+                pass_list_4 = [2, 3, 5, 6]
+
                 if i == 0 and j in pass_list_1:
                     pass
-                elif i == 0 and (j == 7):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 3, GF 6, GF 8')
+                elif i == 0 and (j == 2):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 3')
+                elif i == 0 and (j == 5):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 6')
                 elif i == 0 and (j == 10):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
-                elif i == 0 and (j == 8):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 9')
-                elif i == 0 and (j == 11):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.5, 'GF 5, GF 12')
-
-
+                
                 elif i == 1 and j in pass_list_2:
                     pass
                 elif i == 1 and (j == 2):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 3')
-                elif i == 1 and (j == 5):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 6')
+                elif i == 1 and (j == 8):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 9')
                 elif i == 1 and (j == 10):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
+                elif i == 1 and (j == 11):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 5, GF 12')
+
                 
                 elif i == 2 and j in pass_list_3:
                     pass
-                elif i == 2 and (j == 2):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 3')
+                elif i == 2 and (j == 4):
+                    plt.text(avg[i][j] - 4.5 * adjust_x[i], exp_h[j] + 0.2, 'GF 5')
                 elif i == 2 and (j == 8):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 9')
-                elif i == 2 and (j == 10):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
                 elif i == 2 and (j == 11):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 5, GF 12')
-
-                elif i == 3 and j in pass_list_4:
-                    pass
-                elif i == 3 and (j == 4):
-                    plt.text(avg[i][j] - 4.5 * adjust_x[i], exp_h[j] + 0.2, 'GF 5')
-                elif i == 3 and (j == 8):
-                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.5, 'GF 9')
-                elif i == 3 and (j == 11):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 12')
-                elif i == 3 and (j == 10):
+                elif i == 2 and (j == 10):
                     plt.text(avg[i][j] - 10 * adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
-                elif i == 3 and (j == 2):
+                elif i == 2 and (j == 2):
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] - 0.8, 'GF 3')
-                elif i == 3 and (j == 7):
+                elif i == 2 and (j == 7):
                     plt.text(avg[i][j] - 2 * adjust_x[i], exp_h[j] + 0.2, 'GF 6, GF 8')
+                
+                elif i == 3 and j in pass_list_4:
+                    pass 
+                elif i == 3 and (j == 7): 
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 6, GF 3, GF8')
+                elif i == 3 and (j == 10):
+                    plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, 'GF 4, GF 7, GF 11')
 
                 else:
                     plt.text(avg[i][j] + adjust_x[i], exp_h[j] + 0.2, sys[j])
@@ -187,7 +214,7 @@ if __name__ == "__main__":
         plt.xlim([lower_bounds[i], upper_bounds[i]])
         plt.ylim([2, 26])
 
-        if i == 3:
+        if i == 2:
             plt.legend(bbox_to_anchor=(0.23, 0.92))
         else:
             plt.legend(bbox_to_anchor=(0.98, 0.92))

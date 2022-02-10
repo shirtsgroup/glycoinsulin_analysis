@@ -53,8 +53,14 @@ def read_experimental_data():
     return height, err
 
 def bootstrapping_normal(x, y, x_err, y_err, n_boot=500):
-    # Generate boostrap samples from a normal distribution
-    # Not used in the most recently updated code but we keep it here
+    """
+    This function generates bootstrap samples for x and y data by drawing 
+    samples from normal distributions centered at the means of x and y data
+    to calculate the correlation coefficient and its uncertainty.
+
+    Note that this method is not used in the most updated code but we keep
+    here as a record.
+    """
     r_list = []
     for i in range(n_boot):
         data_1, data_2 = [], []
@@ -69,20 +75,35 @@ def bootstrapping_normal(x, y, x_err, y_err, n_boot=500):
 
     return r, r_err
 
-def bootstrapping_sample(x_data, y_data):
+def bootstrapping_sample(x_data, y_mean, y_err):
+    """
+    This functions bootstraps over the raw data of x (e.g. computational values)
+    and a normal distribution centered at the mean of y (e.g. experimental values)
+    to calcualte the uncertainty of the correlation coefficient.
+
+    Parameters
+    ----------
+    x (array-like): 
+        The raw data of x. Should be in the shape of (n_variants, n_WTmodels)
+    y_mean (array-like): 
+        The experimental data. The length should be 13. 
+    y_err (array-like): 
+        The uncertainty of the experimental data points. The length should be 13
+    """
     # Boostrap over the data of 5 different WT models
     x_data = np.transpose(x_data)   # should be (13, 5), or (n_variants, n_WTmodels)
     r_list = []
     for i in range(500):  # number of bootstrap
-        data = []
+        xx, yy = [], []   # bootstrap samples for variables x and y
         for j in range(len(x_data)):  # 13 variants:
-            data.append(np.mean(random.choices(x_data[j], k=len(x_data[j]))))
-        coef, p_val = scipy.stats.kendalltau(data, y_data)
+            xx.append(np.mean(random.choices(x_data[j], k=len(x_data[j]))))
+            yy.append(np.mean(np.random.normal(y_mean[j], y_err[j], len(x_data[j]))))
+        coef, p_val = scipy.stats.kendalltau(xx, yy)
         r_list.append(coef)
-    r = np.mean(r_list)
-    r_err = np.std(r_list)
+    # r = np.mean(r_list)
+    r_err = np.std(r_list)  # we only use bootstrapping to calculate the uncertainty here
 
-    return r, r_err
+    return r_err
 
 if __name__ == "__main__":
     t1 = time.time()
@@ -133,12 +154,16 @@ if __name__ == "__main__":
 
     # Perform bootstrapping to estimate the the correlation coef and its uncertainty
     random.seed(2021)
+    np.random.seed(2021)
     exp_h, exp_err = read_experimental_data()
     B25_avg, B25_std = sum_up_data(B25_sasa, B25_err)
     B26_avg, B26_std = sum_up_data(B26_sasa, B26_err)
 
-    c1, e1 = bootstrapping_sample(B25_sasa, exp_h)
-    c2, e2 = bootstrapping_sample(B26_sasa, exp_h)
+    c1, _ = scipy.stats.kendalltau(B25_avg, exp_h)
+    c2, _ = scipy.stats.kendalltau(B26_avg, exp_h)
+
+    e1 = bootstrapping_sample(B25_sasa, exp_h, exp_err)
+    e2 = bootstrapping_sample(B26_sasa, exp_h, exp_err)
 
     # Figure 1
     plt.figure(figsize=(6, 8))

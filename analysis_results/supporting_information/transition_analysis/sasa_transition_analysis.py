@@ -60,7 +60,7 @@ if __name__ == "__main__":
     x = tabulate_sasa_result(data_dir, sys, '_sasa_B25.xvg', 2, analyze_time_series)
     logger(x)
 
-    logger('\n(2) SASA of the scissile bond between B25-B26 (units: nm^2)')
+    logger('\n(2) SASA of the scissile bond between B26-B27 (units: nm^2)')
     x = tabulate_sasa_result(data_dir, sys, '_sasa_B26.xvg', 2, analyze_time_series)
     logger(x)
 
