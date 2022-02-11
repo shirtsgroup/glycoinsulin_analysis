@@ -1,3 +1,4 @@
+import os
 import glob
 import pickle
 import natsort
@@ -108,6 +109,9 @@ if __name__ == "__main__":
                 beta_GF.append(beta)
         beta_all.append(beta_GF)
     beta_all = np.array(beta_all)   # shape (5, 4, 13)
+    if os.path.isfile('beta_data_all.pickle') is False:
+        with open(f'beta_data_all.pickle', 'wb') as handle:
+                pickle.dump(beta_all, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     #upper_bounds = np.array([0.025, 100, 37, 101.5])    # upper bounds in x
     #lower_bounds = np.array([-0.006, -12, -5, 86])    # lower bounds in x

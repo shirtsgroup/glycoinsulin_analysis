@@ -83,7 +83,7 @@ def bootstrapping_sample(x_data, y_mean, y_err):
 
     Parameters
     ----------
-    x (array-like): 
+    x_data (array-like): 
         The raw data of x. Should be in the shape of (n_variants, n_WTmodels)
     y_mean (array-like): 
         The experimental data. The length should be 13. 
