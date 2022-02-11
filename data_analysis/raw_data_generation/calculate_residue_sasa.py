@@ -7,7 +7,7 @@ import MDAnalysis
 
 def initialize():
     parser = argparse.ArgumentParser(
-        description="This code use GROMACS wrapper to carry out GROMACS commands for data analysis."
+        description="This code uses GROMACS wrapper to carry out GROMACS commands for data analysis."
     )
     parser.add_argument(
         "-s",
