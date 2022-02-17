@@ -1,6 +1,7 @@
 import time
 import numpy as np 
 import matplotlib.pyplot as plt
+import ruptures as rpt
 from matplotlib import rc
 from pymbar import timeseries
 from prettytable import PrettyTable
@@ -11,10 +12,12 @@ def logger(*args, **kwargs):
         print(file=f, *args, **kwargs)
 
 def analyze_time_series(data):
-    [t, g, N_eff] = timeseries.detectEquilibration(data, nskip=1)
-    t = 0   # we don't truncate any data here in transition_analysis
-    avg = np.mean(data[t:])
-    std = np.std(data) / np.sqrt(len(data) / g)
+    # [t, g, N_eff] = timeseries.detectEquilibration(data)
+    algo = rpt.Pelt(model='rbf').fit(data)  # CPD by PELT algorithm
+    change = algo.predict(pen=10)
+
+    avg = np.mean(data)
+    std = np.std(data) / np.sqrt(len(change))
 
     return avg, std
 
@@ -66,11 +69,11 @@ if __name__ == "__main__":
 
     logger('\n[Metric 2: P1 site SASA]')
     data_dir = '../../proteolytic_stability/Metric_2/'
-    logger('(1) SASA of residue B24')
+    logger('(1) SASA of residue B24 (units: nm^2)')
     x = tabulate_sasa_result(data_dir, sys, '_sasa_res_B24.xvg', 2, analyze_time_series)
     logger(x)
 
-    logger('\n(2) SASA of residue B25')
+    logger('\n(2) SASA of residue B25 (units: nm^2)')
     x = tabulate_sasa_result(data_dir, sys, '_sasa_res_B25.xvg', 2, analyze_time_series)
     logger(x)
 

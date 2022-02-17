@@ -77,7 +77,7 @@ def bootstrapping_sample(x_data, y_mean, y_err, n_boot=500):
         coef, p_val = scipy.stats.kendalltau(xx, yy)
         r_list.append(coef)
     # r = np.mean(r_list)
-    r_err = np.std(r_list)  # we only use bootstrapping to calculate the uncertainty here
+    r_err = np.std(r_list) / np.sqrt(len(x_data[j]) - 1) # we only use bootstrapping to calculate the uncertainty here
 
     return r_err
 
@@ -126,7 +126,7 @@ if __name__ == "__main__":
     random.seed(2021)
     np.random.seed(2021)
     exp_h, exp_err = read_experimental_data()
-    avg, err = np.mean(beta_all, axis=0), np.std(beta_all, axis=0)
+    avg, err = np.mean(beta_all, axis=0), np.std(beta_all, axis=0) / np.sqrt(5 - 1)
     
     c_list, e_list = [], []
     for i in range(4):

@@ -25,13 +25,14 @@ def analyze_sasa(xvg_file):
 
 def sum_up_data(avg_data, std_data):
     avg_data = np.transpose(np.array(avg_data))
-    std_data = np.transpose(np.array(std_data))
+    # std_data = np.transpose(np.array(std_data))
 
     avg_all, std_all = [], []  # avg of all GFs
 
     for i in range(len(avg_data)):
         avg_all.append(np.mean(avg_data[i]))
-        std_all.append(1 / len(avg_data) * np.sqrt(sum(map(lambda x: x * x, std_data[i]))))
+        std_all.append(np.std(avg_data[i]) / np.sqrt(len(avg_data[i]) - 1))
+        # std_all.append(1 / len(avg_data) * np.sqrt(sum(map(lambda x: x * x, std_data[i]))))
 
     return avg_all, std_all
 
@@ -101,7 +102,7 @@ def bootstrapping_sample(x_data, y_mean, y_err):
         coef, p_val = scipy.stats.kendalltau(xx, yy)
         r_list.append(coef)
     # r = np.mean(r_list)
-    r_err = np.std(r_list)  # we only use bootstrapping to calculate the uncertainty here
+    r_err = np.std(r_list) / np.sqrt(len(x_data[j]) - 1)  # we only use bootstrapping to calculate the uncertainty here
 
     return r_err
 
@@ -225,17 +226,17 @@ if __name__ == "__main__":
             else:  
                 plt.text(B25_avg[i] + 0.01, exp_h[i] + 0.1, sys[i])
 
-    plt.fill_between([0.95, 1.45], 2, 8, color=colors[0], alpha=0.3, zorder=0)
-    plt.fill_between([0.95, 1.45], 8, 12.5, color=colors[1], alpha=0.3, zorder=0)
-    plt.fill_between([0.95, 1.45], 12.5, 26, color=colors[2], alpha=0.3, zorder=0)
-    plt.text(0.955, 12.8, '(Longer half-life than WT)')
-    plt.text(0.955, 8.3, '(Comparable half-life as WT)')
-    plt.text(0.955, 2.8, '(Shorter half-life than WT)')
+    plt.fill_between([0.9, 1.55], 2, 8, color=colors[0], alpha=0.3, zorder=0)
+    plt.fill_between([0.9, 1.55], 8, 12.5, color=colors[1], alpha=0.3, zorder=0)
+    plt.fill_between([0.9, 1.55], 12.5, 26, color=colors[2], alpha=0.3, zorder=0)
+    plt.text(0.91, 12.8, '(Longer half-life than WT)')
+    plt.text(0.91, 8.3, '(Comparable half-life as WT)')
+    plt.text(0.91, 2.8, '(Shorter half-life than WT)')
     plt.text(0.76, 0.93, r'($\tau=$' + f'{c2:.3f} $\pm$ {e2:.3f})', transform=plt.gca().transAxes)
     
     plt.xlabel('SASA of residue B25 (nm$^2$)', size=12)
     plt.ylabel(r'$\alpha$-chymotrypsin half-life (min)', size=12)
-    plt.xlim([0.95, 1.43])
+    plt.xlim([0.9, 1.55])
     plt.ylim([2, 26])
     plt.grid()
     plt.legend(bbox_to_anchor=(0.98, 0.92))
