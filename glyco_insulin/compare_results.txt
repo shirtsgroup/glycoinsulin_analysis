@@ -1,382 +1,382 @@
 Section 1: Comparison of the wildtype structures
 ================================================
 -- [ Comparison between WT/4EYD and WT/4EY9] --
-WT/4EYD and WT/4EY9 have the same numbers of atoms!
-WT/4EYD and WT/4EY9 have the same total charges!
+WT/4EYD and WT/4EY9 have the same numbers of atoms (787)!
+WT/4EYD and WT/4EY9 have the same total charges (-1.0)!
 WT/4EYD and WT/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-WT/4EYD: <Residue HIE, 31> / WT/4EY9: <Residue HID, 31>
---> Conclusion: WT/4EYD and WT/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    WT/4EYD: <Residue HIE, 31> / WT/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: WT/4EYD and WT/4EY9 have different structures!
 
 -- [ Comparison between WT/4EYD and WT/4EY1] --
-WT/4EYD and WT/4EY1 have the same numbers of atoms!
-WT/4EYD and WT/4EY1 have the same total charges!
+WT/4EYD and WT/4EY1 have the same numbers of atoms (787)!
+WT/4EYD and WT/4EY1 have the same total charges (-1.0)!
 WT/4EYD and WT/4EY1 have exactly the same atom type for each atom.
---> Conclusion: WT/4EYD and WT/4EY1 have the same structures.
+--> ✅ Conclusion: WT/4EYD and WT/4EY1 have the same structures.
 
 -- [ Comparison between WT/4EYD and WT/3I3Z] --
-WT/4EYD and WT/3I3Z have the same numbers of atoms!
-WT/4EYD and WT/3I3Z have the same total charges!
+WT/4EYD and WT/3I3Z have the same numbers of atoms (787)!
+WT/4EYD and WT/3I3Z have the same total charges (-1.0)!
 WT/4EYD and WT/3I3Z have exactly the same atom type for each atom.
---> Conclusion: WT/4EYD and WT/3I3Z have the same structures.
+--> ✅ Conclusion: WT/4EYD and WT/3I3Z have the same structures.
 
 -- [ Comparison between WT/4EYD and WT/2MVC] --
-WT/4EYD and WT/2MVC have the same numbers of atoms!
-WT/4EYD and WT/2MVC have the same total charges!
+WT/4EYD and WT/2MVC have the same numbers of atoms (787)!
+WT/4EYD and WT/2MVC have the same total charges (-1.0)!
 WT/4EYD and WT/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-WT/4EYD: <Residue HIP, 26> / WT/2MVC: <Residue HIE, 26>
-WT/4EYD: <Residue HIE, 31> / WT/2MVC: <Residue HIP, 31>
---> Conclusion: WT/4EYD and WT/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    WT/4EYD: <Residue HIP, 26> / WT/2MVC: <Residue HIE, 26>
+    WT/4EYD: <Residue HIE, 31> / WT/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: WT/4EYD and WT/2MVC have different structures!
 
 
 Section 2: Comparison between insulin glycoforms
 =================================================
 -- [ Comparison between GF2/4EYD and GF2/4EY9] --
-GF2/4EYD and GF2/4EY9 have the same numbers of atoms!
-GF2/4EYD and GF2/4EY9 have the same total charges!
+GF2/4EYD and GF2/4EY9 have the same numbers of atoms (814)!
+GF2/4EYD and GF2/4EY9 have the same total charges (-1.0)!
 GF2/4EYD and GF2/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF2/4EYD: <Residue HIE, 31> / GF2/4EY9: <Residue HID, 31>
---> Conclusion: GF2/4EYD and GF2/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF2/4EYD: <Residue HIE, 31> / GF2/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF2/4EYD and GF2/4EY9 have different structures!
 
 -- [ Comparison between GF2/4EYD and GF2/4EY1] --
-GF2/4EYD and GF2/4EY1 have the same numbers of atoms!
-GF2/4EYD and GF2/4EY1 have the same total charges!
+GF2/4EYD and GF2/4EY1 have the same numbers of atoms (814)!
+GF2/4EYD and GF2/4EY1 have the same total charges (-1.0)!
 GF2/4EYD and GF2/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF2/4EYD and GF2/4EY1 have the same structures.
+--> ✅ Conclusion: GF2/4EYD and GF2/4EY1 have the same structures.
 
 -- [ Comparison between GF2/4EYD and GF2/3I3Z] --
-GF2/4EYD and GF2/3I3Z have the same numbers of atoms!
-GF2/4EYD and GF2/3I3Z have the same total charges!
+GF2/4EYD and GF2/3I3Z have the same numbers of atoms (814)!
+GF2/4EYD and GF2/3I3Z have the same total charges (-1.0)!
 GF2/4EYD and GF2/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF2/4EYD and GF2/3I3Z have the same structures.
+--> ✅ Conclusion: GF2/4EYD and GF2/3I3Z have the same structures.
 
 -- [ Comparison between GF2/4EYD and GF2/2MVC] --
-GF2/4EYD and GF2/2MVC have the same numbers of atoms!
-GF2/4EYD and GF2/2MVC have the same total charges!
+GF2/4EYD and GF2/2MVC have the same numbers of atoms (814)!
+GF2/4EYD and GF2/2MVC have the same total charges (-1.0)!
 GF2/4EYD and GF2/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF2/4EYD: <Residue HIP, 26> / GF2/2MVC: <Residue HIE, 26>
-GF2/4EYD: <Residue HIE, 31> / GF2/2MVC: <Residue HIP, 31>
---> Conclusion: GF2/4EYD and GF2/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF2/4EYD: <Residue HIP, 26> / GF2/2MVC: <Residue HIE, 26>
+    GF2/4EYD: <Residue HIE, 31> / GF2/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF2/4EYD and GF2/2MVC have different structures!
 
 -- [ Comparison between GF3/4EYD and GF3/4EY9] --
-GF3/4EYD and GF3/4EY9 have the same numbers of atoms!
-GF3/4EYD and GF3/4EY9 have the same total charges!
+GF3/4EYD and GF3/4EY9 have the same numbers of atoms (814)!
+GF3/4EYD and GF3/4EY9 have the same total charges (-1.0)!
 GF3/4EYD and GF3/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF3/4EYD: <Residue HIE, 31> / GF3/4EY9: <Residue HID, 31>
---> Conclusion: GF3/4EYD and GF3/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF3/4EYD: <Residue HIE, 31> / GF3/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF3/4EYD and GF3/4EY9 have different structures!
 
 -- [ Comparison between GF3/4EYD and GF3/4EY1] --
-GF3/4EYD and GF3/4EY1 have the same numbers of atoms!
-GF3/4EYD and GF3/4EY1 have the same total charges!
+GF3/4EYD and GF3/4EY1 have the same numbers of atoms (814)!
+GF3/4EYD and GF3/4EY1 have the same total charges (-1.0)!
 GF3/4EYD and GF3/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF3/4EYD and GF3/4EY1 have the same structures.
+--> ✅ Conclusion: GF3/4EYD and GF3/4EY1 have the same structures.
 
 -- [ Comparison between GF3/4EYD and GF3/3I3Z] --
-GF3/4EYD and GF3/3I3Z have the same numbers of atoms!
-GF3/4EYD and GF3/3I3Z have the same total charges!
+GF3/4EYD and GF3/3I3Z have the same numbers of atoms (814)!
+GF3/4EYD and GF3/3I3Z have the same total charges (-1.0)!
 GF3/4EYD and GF3/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF3/4EYD and GF3/3I3Z have the same structures.
+--> ✅ Conclusion: GF3/4EYD and GF3/3I3Z have the same structures.
 
 -- [ Comparison between GF3/4EYD and GF3/2MVC] --
-GF3/4EYD and GF3/2MVC have the same numbers of atoms!
-GF3/4EYD and GF3/2MVC have the same total charges!
+GF3/4EYD and GF3/2MVC have the same numbers of atoms (814)!
+GF3/4EYD and GF3/2MVC have the same total charges (-1.0)!
 GF3/4EYD and GF3/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF3/4EYD: <Residue HIP, 26> / GF3/2MVC: <Residue HIE, 26>
-GF3/4EYD: <Residue HIE, 31> / GF3/2MVC: <Residue HIP, 31>
---> Conclusion: GF3/4EYD and GF3/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF3/4EYD: <Residue HIP, 26> / GF3/2MVC: <Residue HIE, 26>
+    GF3/4EYD: <Residue HIE, 31> / GF3/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF3/4EYD and GF3/2MVC have different structures!
 
 -- [ Comparison between GF4/4EYD and GF4/4EY9] --
-GF4/4EYD and GF4/4EY9 have the same numbers of atoms!
-GF4/4EYD and GF4/4EY9 have the same total charges!
+GF4/4EYD and GF4/4EY9 have the same numbers of atoms (814)!
+GF4/4EYD and GF4/4EY9 have the same total charges (-1.0)!
 GF4/4EYD and GF4/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF4/4EYD: <Residue HIE, 31> / GF4/4EY9: <Residue HID, 31>
---> Conclusion: GF4/4EYD and GF4/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF4/4EYD: <Residue HIE, 31> / GF4/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF4/4EYD and GF4/4EY9 have different structures!
 
 -- [ Comparison between GF4/4EYD and GF4/4EY1] --
-GF4/4EYD and GF4/4EY1 have the same numbers of atoms!
-GF4/4EYD and GF4/4EY1 have the same total charges!
+GF4/4EYD and GF4/4EY1 have the same numbers of atoms (814)!
+GF4/4EYD and GF4/4EY1 have the same total charges (-1.0)!
 GF4/4EYD and GF4/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF4/4EYD and GF4/4EY1 have the same structures.
+--> ✅ Conclusion: GF4/4EYD and GF4/4EY1 have the same structures.
 
 -- [ Comparison between GF4/4EYD and GF4/3I3Z] --
-GF4/4EYD and GF4/3I3Z have the same numbers of atoms!
-GF4/4EYD and GF4/3I3Z have the same total charges!
+GF4/4EYD and GF4/3I3Z have the same numbers of atoms (814)!
+GF4/4EYD and GF4/3I3Z have the same total charges (-1.0)!
 GF4/4EYD and GF4/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF4/4EYD and GF4/3I3Z have the same structures.
+--> ✅ Conclusion: GF4/4EYD and GF4/3I3Z have the same structures.
 
 -- [ Comparison between GF4/4EYD and GF4/2MVC] --
-GF4/4EYD and GF4/2MVC have the same numbers of atoms!
-GF4/4EYD and GF4/2MVC have the same total charges!
+GF4/4EYD and GF4/2MVC have the same numbers of atoms (814)!
+GF4/4EYD and GF4/2MVC have the same total charges (-1.0)!
 GF4/4EYD and GF4/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF4/4EYD: <Residue HIP, 26> / GF4/2MVC: <Residue HIE, 26>
-GF4/4EYD: <Residue HIE, 31> / GF4/2MVC: <Residue HIP, 31>
---> Conclusion: GF4/4EYD and GF4/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF4/4EYD: <Residue HIP, 26> / GF4/2MVC: <Residue HIE, 26>
+    GF4/4EYD: <Residue HIE, 31> / GF4/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF4/4EYD and GF4/2MVC have different structures!
 
 -- [ Comparison between GF5/4EYD and GF5/4EY9] --
-GF5/4EYD and GF5/4EY9 have the same numbers of atoms!
-GF5/4EYD and GF5/4EY9 have the same total charges!
+GF5/4EYD and GF5/4EY9 have the same numbers of atoms (814)!
+GF5/4EYD and GF5/4EY9 have the same total charges (-1.0)!
 GF5/4EYD and GF5/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF5/4EYD: <Residue HIE, 31> / GF5/4EY9: <Residue HID, 31>
---> Conclusion: GF5/4EYD and GF5/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF5/4EYD: <Residue HIE, 31> / GF5/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF5/4EYD and GF5/4EY9 have different structures!
 
 -- [ Comparison between GF5/4EYD and GF5/4EY1] --
-GF5/4EYD and GF5/4EY1 have the same numbers of atoms!
-GF5/4EYD and GF5/4EY1 have the same total charges!
+GF5/4EYD and GF5/4EY1 have the same numbers of atoms (814)!
+GF5/4EYD and GF5/4EY1 have the same total charges (-1.0)!
 GF5/4EYD and GF5/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF5/4EYD and GF5/4EY1 have the same structures.
+--> ✅ Conclusion: GF5/4EYD and GF5/4EY1 have the same structures.
 
 -- [ Comparison between GF5/4EYD and GF5/3I3Z] --
-GF5/4EYD and GF5/3I3Z have the same numbers of atoms!
-GF5/4EYD and GF5/3I3Z have the same total charges!
+GF5/4EYD and GF5/3I3Z have the same numbers of atoms (814)!
+GF5/4EYD and GF5/3I3Z have the same total charges (-1.0)!
 GF5/4EYD and GF5/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF5/4EYD and GF5/3I3Z have the same structures.
+--> ✅ Conclusion: GF5/4EYD and GF5/3I3Z have the same structures.
 
 -- [ Comparison between GF5/4EYD and GF5/2MVC] --
-GF5/4EYD and GF5/2MVC have the same numbers of atoms!
-GF5/4EYD and GF5/2MVC have the same total charges!
+GF5/4EYD and GF5/2MVC have the same numbers of atoms (814)!
+GF5/4EYD and GF5/2MVC have the same total charges (-1.0)!
 GF5/4EYD and GF5/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF5/4EYD: <Residue HIP, 26> / GF5/2MVC: <Residue HIE, 26>
-GF5/4EYD: <Residue HIE, 31> / GF5/2MVC: <Residue HIP, 31>
---> Conclusion: GF5/4EYD and GF5/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF5/4EYD: <Residue HIP, 26> / GF5/2MVC: <Residue HIE, 26>
+    GF5/4EYD: <Residue HIE, 31> / GF5/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF5/4EYD and GF5/2MVC have different structures!
 
 -- [ Comparison between GF6/4EYD and GF6/4EY9] --
-GF6/4EYD and GF6/4EY9 have the same numbers of atoms!
-GF6/4EYD and GF6/4EY9 have the same total charges!
+GF6/4EYD and GF6/4EY9 have the same numbers of atoms (813)!
+GF6/4EYD and GF6/4EY9 have the same total charges (0.0)!
 GF6/4EYD and GF6/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF6/4EYD: <Residue HIE, 31> / GF6/4EY9: <Residue HID, 31>
---> Conclusion: GF6/4EYD and GF6/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF6/4EYD: <Residue HIE, 31> / GF6/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF6/4EYD and GF6/4EY9 have different structures!
 
 -- [ Comparison between GF6/4EYD and GF6/4EY1] --
-GF6/4EYD and GF6/4EY1 have the same numbers of atoms!
-GF6/4EYD and GF6/4EY1 have the same total charges!
+GF6/4EYD and GF6/4EY1 have the same numbers of atoms (813)!
+GF6/4EYD and GF6/4EY1 have the same total charges (0.0)!
 GF6/4EYD and GF6/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF6/4EYD and GF6/4EY1 have the same structures.
+--> ✅ Conclusion: GF6/4EYD and GF6/4EY1 have the same structures.
 
 -- [ Comparison between GF6/4EYD and GF6/3I3Z] --
-GF6/4EYD and GF6/3I3Z have the same numbers of atoms!
-GF6/4EYD and GF6/3I3Z have the same total charges!
+GF6/4EYD and GF6/3I3Z have the same numbers of atoms (813)!
+GF6/4EYD and GF6/3I3Z have the same total charges (0.0)!
 GF6/4EYD and GF6/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF6/4EYD and GF6/3I3Z have the same structures.
+--> ✅ Conclusion: GF6/4EYD and GF6/3I3Z have the same structures.
 
 -- [ Comparison between GF6/4EYD and GF6/2MVC] --
-GF6/4EYD and GF6/2MVC have the same numbers of atoms!
-GF6/4EYD and GF6/2MVC have the same total charges!
+GF6/4EYD and GF6/2MVC have the same numbers of atoms (813)!
+GF6/4EYD and GF6/2MVC have the same total charges (0.0)!
 GF6/4EYD and GF6/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF6/4EYD: <Residue HIP, 26> / GF6/2MVC: <Residue HIE, 26>
-GF6/4EYD: <Residue HIE, 31> / GF6/2MVC: <Residue HIP, 31>
---> Conclusion: GF6/4EYD and GF6/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF6/4EYD: <Residue HIP, 26> / GF6/2MVC: <Residue HIE, 26>
+    GF6/4EYD: <Residue HIE, 31> / GF6/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF6/4EYD and GF6/2MVC have different structures!
 
 -- [ Comparison between GF7/4EYD and GF7/4EY9] --
-GF7/4EYD and GF7/4EY9 have the same numbers of atoms!
-GF7/4EYD and GF7/4EY9 have the same total charges!
+GF7/4EYD and GF7/4EY9 have the same numbers of atoms (808)!
+GF7/4EYD and GF7/4EY9 have the same total charges (-1.0)!
 GF7/4EYD and GF7/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF7/4EYD: <Residue HIE, 31> / GF7/4EY9: <Residue HID, 31>
---> Conclusion: GF7/4EYD and GF7/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF7/4EYD: <Residue HIE, 31> / GF7/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF7/4EYD and GF7/4EY9 have different structures!
 
 -- [ Comparison between GF7/4EYD and GF7/4EY1] --
-GF7/4EYD and GF7/4EY1 have the same numbers of atoms!
-GF7/4EYD and GF7/4EY1 have the same total charges!
+GF7/4EYD and GF7/4EY1 have the same numbers of atoms (808)!
+GF7/4EYD and GF7/4EY1 have the same total charges (-1.0)!
 GF7/4EYD and GF7/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF7/4EYD and GF7/4EY1 have the same structures.
+--> ✅ Conclusion: GF7/4EYD and GF7/4EY1 have the same structures.
 
 -- [ Comparison between GF7/4EYD and GF7/3I3Z] --
-GF7/4EYD and GF7/3I3Z have the same numbers of atoms!
-GF7/4EYD and GF7/3I3Z have the same total charges!
+GF7/4EYD and GF7/3I3Z have the same numbers of atoms (808)!
+GF7/4EYD and GF7/3I3Z have the same total charges (-1.0)!
 GF7/4EYD and GF7/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF7/4EYD and GF7/3I3Z have the same structures.
+--> ✅ Conclusion: GF7/4EYD and GF7/3I3Z have the same structures.
 
 -- [ Comparison between GF7/4EYD and GF7/2MVC] --
-GF7/4EYD and GF7/2MVC have the same numbers of atoms!
-GF7/4EYD and GF7/2MVC have the same total charges!
+GF7/4EYD and GF7/2MVC have the same numbers of atoms (808)!
+GF7/4EYD and GF7/2MVC have the same total charges (-1.0)!
 GF7/4EYD and GF7/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF7/4EYD: <Residue HIP, 26> / GF7/2MVC: <Residue HIE, 26>
-GF7/4EYD: <Residue HIE, 31> / GF7/2MVC: <Residue HIP, 31>
---> Conclusion: GF7/4EYD and GF7/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF7/4EYD: <Residue HIP, 26> / GF7/2MVC: <Residue HIE, 26>
+    GF7/4EYD: <Residue HIE, 31> / GF7/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF7/4EYD and GF7/2MVC have different structures!
 
 -- [ Comparison between GF8/4EYD and GF8/4EY9] --
-GF8/4EYD and GF8/4EY9 have the same numbers of atoms!
-GF8/4EYD and GF8/4EY9 have the same total charges!
+GF8/4EYD and GF8/4EY9 have the same numbers of atoms (829)!
+GF8/4EYD and GF8/4EY9 have the same total charges (-1.0)!
 GF8/4EYD and GF8/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF8/4EYD: <Residue HIE, 31> / GF8/4EY9: <Residue HID, 31>
---> Conclusion: GF8/4EYD and GF8/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF8/4EYD: <Residue HIE, 31> / GF8/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF8/4EYD and GF8/4EY9 have different structures!
 
 -- [ Comparison between GF8/4EYD and GF8/4EY1] --
-GF8/4EYD and GF8/4EY1 have the same numbers of atoms!
-GF8/4EYD and GF8/4EY1 have the same total charges!
+GF8/4EYD and GF8/4EY1 have the same numbers of atoms (829)!
+GF8/4EYD and GF8/4EY1 have the same total charges (-1.0)!
 GF8/4EYD and GF8/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF8/4EYD and GF8/4EY1 have the same structures.
+--> ✅ Conclusion: GF8/4EYD and GF8/4EY1 have the same structures.
 
 -- [ Comparison between GF8/4EYD and GF8/3I3Z] --
-GF8/4EYD and GF8/3I3Z have the same numbers of atoms!
-GF8/4EYD and GF8/3I3Z have the same total charges!
+GF8/4EYD and GF8/3I3Z have the same numbers of atoms (829)!
+GF8/4EYD and GF8/3I3Z have the same total charges (-1.0)!
 GF8/4EYD and GF8/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF8/4EYD and GF8/3I3Z have the same structures.
+--> ✅ Conclusion: GF8/4EYD and GF8/3I3Z have the same structures.
 
 -- [ Comparison between GF8/4EYD and GF8/2MVC] --
-GF8/4EYD and GF8/2MVC have the same numbers of atoms!
-GF8/4EYD and GF8/2MVC have the same total charges!
+GF8/4EYD and GF8/2MVC have the same numbers of atoms (829)!
+GF8/4EYD and GF8/2MVC have the same total charges (-1.0)!
 GF8/4EYD and GF8/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF8/4EYD: <Residue HIP, 26> / GF8/2MVC: <Residue HIE, 26>
-GF8/4EYD: <Residue HIE, 31> / GF8/2MVC: <Residue HIP, 31>
---> Conclusion: GF8/4EYD and GF8/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF8/4EYD: <Residue HIP, 26> / GF8/2MVC: <Residue HIE, 26>
+    GF8/4EYD: <Residue HIE, 31> / GF8/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF8/4EYD and GF8/2MVC have different structures!
 
 -- [ Comparison between GF9/4EYD and GF9/4EY9] --
-GF9/4EYD and GF9/4EY9 have the same numbers of atoms!
-GF9/4EYD and GF9/4EY9 have the same total charges!
+GF9/4EYD and GF9/4EY9 have the same numbers of atoms (808)!
+GF9/4EYD and GF9/4EY9 have the same total charges (-1.0)!
 GF9/4EYD and GF9/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF9/4EYD: <Residue HIE, 31> / GF9/4EY9: <Residue HID, 31>
---> Conclusion: GF9/4EYD and GF9/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF9/4EYD: <Residue HIE, 31> / GF9/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF9/4EYD and GF9/4EY9 have different structures!
 
 -- [ Comparison between GF9/4EYD and GF9/4EY1] --
-GF9/4EYD and GF9/4EY1 have the same numbers of atoms!
-GF9/4EYD and GF9/4EY1 have the same total charges!
+GF9/4EYD and GF9/4EY1 have the same numbers of atoms (808)!
+GF9/4EYD and GF9/4EY1 have the same total charges (-1.0)!
 GF9/4EYD and GF9/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF9/4EYD and GF9/4EY1 have the same structures.
+--> ✅ Conclusion: GF9/4EYD and GF9/4EY1 have the same structures.
 
 -- [ Comparison between GF9/4EYD and GF9/3I3Z] --
-GF9/4EYD and GF9/3I3Z have the same numbers of atoms!
-GF9/4EYD and GF9/3I3Z have the same total charges!
+GF9/4EYD and GF9/3I3Z have the same numbers of atoms (808)!
+GF9/4EYD and GF9/3I3Z have the same total charges (-1.0)!
 GF9/4EYD and GF9/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF9/4EYD and GF9/3I3Z have the same structures.
+--> ✅ Conclusion: GF9/4EYD and GF9/3I3Z have the same structures.
 
 -- [ Comparison between GF9/4EYD and GF9/2MVC] --
-GF9/4EYD and GF9/2MVC have the same numbers of atoms!
-GF9/4EYD and GF9/2MVC have the same total charges!
+GF9/4EYD and GF9/2MVC have the same numbers of atoms (808)!
+GF9/4EYD and GF9/2MVC have the same total charges (-1.0)!
 GF9/4EYD and GF9/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF9/4EYD: <Residue HIP, 26> / GF9/2MVC: <Residue HIE, 26>
-GF9/4EYD: <Residue HIE, 31> / GF9/2MVC: <Residue HIP, 31>
---> Conclusion: GF9/4EYD and GF9/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF9/4EYD: <Residue HIP, 26> / GF9/2MVC: <Residue HIE, 26>
+    GF9/4EYD: <Residue HIE, 31> / GF9/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF9/4EYD and GF9/2MVC have different structures!
 
 -- [ Comparison between GF10/4EYD and GF10/4EY9] --
-GF10/4EYD and GF10/4EY9 have the same numbers of atoms!
-GF10/4EYD and GF10/4EY9 have the same total charges!
+GF10/4EYD and GF10/4EY9 have the same numbers of atoms (829)!
+GF10/4EYD and GF10/4EY9 have the same total charges (-1.0)!
 GF10/4EYD and GF10/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF10/4EYD: <Residue HIE, 31> / GF10/4EY9: <Residue HID, 31>
---> Conclusion: GF10/4EYD and GF10/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF10/4EYD: <Residue HIE, 31> / GF10/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF10/4EYD and GF10/4EY9 have different structures!
 
 -- [ Comparison between GF10/4EYD and GF10/4EY1] --
-GF10/4EYD and GF10/4EY1 have the same numbers of atoms!
-GF10/4EYD and GF10/4EY1 have the same total charges!
+GF10/4EYD and GF10/4EY1 have the same numbers of atoms (829)!
+GF10/4EYD and GF10/4EY1 have the same total charges (-1.0)!
 GF10/4EYD and GF10/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF10/4EYD and GF10/4EY1 have the same structures.
+--> ✅ Conclusion: GF10/4EYD and GF10/4EY1 have the same structures.
 
 -- [ Comparison between GF10/4EYD and GF10/3I3Z] --
-GF10/4EYD and GF10/3I3Z have the same numbers of atoms!
-GF10/4EYD and GF10/3I3Z have the same total charges!
+GF10/4EYD and GF10/3I3Z have the same numbers of atoms (829)!
+GF10/4EYD and GF10/3I3Z have the same total charges (-1.0)!
 GF10/4EYD and GF10/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF10/4EYD and GF10/3I3Z have the same structures.
+--> ✅ Conclusion: GF10/4EYD and GF10/3I3Z have the same structures.
 
 -- [ Comparison between GF10/4EYD and GF10/2MVC] --
-GF10/4EYD and GF10/2MVC have the same numbers of atoms!
-GF10/4EYD and GF10/2MVC have the same total charges!
+GF10/4EYD and GF10/2MVC have the same numbers of atoms (829)!
+GF10/4EYD and GF10/2MVC have the same total charges (-1.0)!
 GF10/4EYD and GF10/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF10/4EYD: <Residue HIP, 26> / GF10/2MVC: <Residue HIE, 26>
-GF10/4EYD: <Residue HIE, 31> / GF10/2MVC: <Residue HIP, 31>
---> Conclusion: GF10/4EYD and GF10/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF10/4EYD: <Residue HIP, 26> / GF10/2MVC: <Residue HIE, 26>
+    GF10/4EYD: <Residue HIE, 31> / GF10/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF10/4EYD and GF10/2MVC have different structures!
 
 -- [ Comparison between GF11/4EYD and GF11/4EY9] --
-GF11/4EYD and GF11/4EY9 have the same numbers of atoms!
-GF11/4EYD and GF11/4EY9 have the same total charges!
+GF11/4EYD and GF11/4EY9 have the same numbers of atoms (807)!
+GF11/4EYD and GF11/4EY9 have the same total charges (0.0)!
 GF11/4EYD and GF11/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF11/4EYD: <Residue HIE, 31> / GF11/4EY9: <Residue HID, 31>
---> Conclusion: GF11/4EYD and GF11/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF11/4EYD: <Residue HIE, 31> / GF11/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF11/4EYD and GF11/4EY9 have different structures!
 
 -- [ Comparison between GF11/4EYD and GF11/4EY1] --
-GF11/4EYD and GF11/4EY1 have the same numbers of atoms!
-GF11/4EYD and GF11/4EY1 have the same total charges!
+GF11/4EYD and GF11/4EY1 have the same numbers of atoms (807)!
+GF11/4EYD and GF11/4EY1 have the same total charges (0.0)!
 GF11/4EYD and GF11/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF11/4EYD and GF11/4EY1 have the same structures.
+--> ✅ Conclusion: GF11/4EYD and GF11/4EY1 have the same structures.
 
 -- [ Comparison between GF11/4EYD and GF11/3I3Z] --
-GF11/4EYD and GF11/3I3Z have the same numbers of atoms!
-GF11/4EYD and GF11/3I3Z have the same total charges!
+GF11/4EYD and GF11/3I3Z have the same numbers of atoms (807)!
+GF11/4EYD and GF11/3I3Z have the same total charges (0.0)!
 GF11/4EYD and GF11/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF11/4EYD and GF11/3I3Z have the same structures.
+--> ✅ Conclusion: GF11/4EYD and GF11/3I3Z have the same structures.
 
 -- [ Comparison between GF11/4EYD and GF11/2MVC] --
-GF11/4EYD and GF11/2MVC have the same numbers of atoms!
-GF11/4EYD and GF11/2MVC have the same total charges!
+GF11/4EYD and GF11/2MVC have the same numbers of atoms (807)!
+GF11/4EYD and GF11/2MVC have the same total charges (0.0)!
 GF11/4EYD and GF11/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF11/4EYD: <Residue HIP, 26> / GF11/2MVC: <Residue HIE, 26>
-GF11/4EYD: <Residue HIE, 31> / GF11/2MVC: <Residue HIP, 31>
---> Conclusion: GF11/4EYD and GF11/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF11/4EYD: <Residue HIP, 26> / GF11/2MVC: <Residue HIE, 26>
+    GF11/4EYD: <Residue HIE, 31> / GF11/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF11/4EYD and GF11/2MVC have different structures!
 
 -- [ Comparison between GF12/4EYD and GF12/4EY9] --
-GF12/4EYD and GF12/4EY9 have the same numbers of atoms!
-GF12/4EYD and GF12/4EY9 have the same total charges!
+GF12/4EYD and GF12/4EY9 have the same numbers of atoms (828)!
+GF12/4EYD and GF12/4EY9 have the same total charges (0.0)!
 GF12/4EYD and GF12/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF12/4EYD: <Residue HIE, 31> / GF12/4EY9: <Residue HID, 31>
---> Conclusion: GF12/4EYD and GF12/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF12/4EYD: <Residue HIE, 31> / GF12/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF12/4EYD and GF12/4EY9 have different structures!
 
 -- [ Comparison between GF12/4EYD and GF12/4EY1] --
-GF12/4EYD and GF12/4EY1 have the same numbers of atoms!
-GF12/4EYD and GF12/4EY1 have the same total charges!
+GF12/4EYD and GF12/4EY1 have the same numbers of atoms (828)!
+GF12/4EYD and GF12/4EY1 have the same total charges (0.0)!
 GF12/4EYD and GF12/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF12/4EYD and GF12/4EY1 have the same structures.
+--> ✅ Conclusion: GF12/4EYD and GF12/4EY1 have the same structures.
 
 -- [ Comparison between GF12/4EYD and GF12/3I3Z] --
-GF12/4EYD and GF12/3I3Z have the same numbers of atoms!
-GF12/4EYD and GF12/3I3Z have the same total charges!
+GF12/4EYD and GF12/3I3Z have the same numbers of atoms (828)!
+GF12/4EYD and GF12/3I3Z have the same total charges (0.0)!
 GF12/4EYD and GF12/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF12/4EYD and GF12/3I3Z have the same structures.
+--> ✅ Conclusion: GF12/4EYD and GF12/3I3Z have the same structures.
 
 -- [ Comparison between GF12/4EYD and GF12/2MVC] --
-GF12/4EYD and GF12/2MVC have the same numbers of atoms!
-GF12/4EYD and GF12/2MVC have the same total charges!
+GF12/4EYD and GF12/2MVC have the same numbers of atoms (828)!
+GF12/4EYD and GF12/2MVC have the same total charges (0.0)!
 GF12/4EYD and GF12/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF12/4EYD: <Residue HIP, 26> / GF12/2MVC: <Residue HIE, 26>
-GF12/4EYD: <Residue HIE, 31> / GF12/2MVC: <Residue HIP, 31>
---> Conclusion: GF12/4EYD and GF12/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF12/4EYD: <Residue HIP, 26> / GF12/2MVC: <Residue HIE, 26>
+    GF12/4EYD: <Residue HIE, 31> / GF12/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF12/4EYD and GF12/2MVC have different structures!
 
 -- [ Comparison between GF13/4EYD and GF13/4EY9] --
-GF13/4EYD and GF13/4EY9 have the same numbers of atoms!
-GF13/4EYD and GF13/4EY9 have the same total charges!
+GF13/4EYD and GF13/4EY9 have the same numbers of atoms (850)!
+GF13/4EYD and GF13/4EY9 have the same total charges (-1.0)!
 GF13/4EYD and GF13/4EY9 do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF13/4EYD: <Residue HIE, 31> / GF13/4EY9: <Residue HID, 31>
---> Conclusion: GF13/4EYD and GF13/4EY9 have different structures!
+    Below is a list of residues that had different atom types:
+    GF13/4EYD: <Residue HIE, 31> / GF13/4EY9: <Residue HID, 31>
+--> ❎ Conclusion: GF13/4EYD and GF13/4EY9 have different structures!
 
 -- [ Comparison between GF13/4EYD and GF13/4EY1] --
-GF13/4EYD and GF13/4EY1 have the same numbers of atoms!
-GF13/4EYD and GF13/4EY1 have the same total charges!
+GF13/4EYD and GF13/4EY1 have the same numbers of atoms (850)!
+GF13/4EYD and GF13/4EY1 have the same total charges (-1.0)!
 GF13/4EYD and GF13/4EY1 have exactly the same atom type for each atom.
---> Conclusion: GF13/4EYD and GF13/4EY1 have the same structures.
+--> ✅ Conclusion: GF13/4EYD and GF13/4EY1 have the same structures.
 
 -- [ Comparison between GF13/4EYD and GF13/3I3Z] --
-GF13/4EYD and GF13/3I3Z have the same numbers of atoms!
-GF13/4EYD and GF13/3I3Z have the same total charges!
+GF13/4EYD and GF13/3I3Z have the same numbers of atoms (850)!
+GF13/4EYD and GF13/3I3Z have the same total charges (-1.0)!
 GF13/4EYD and GF13/3I3Z have exactly the same atom type for each atom.
---> Conclusion: GF13/4EYD and GF13/3I3Z have the same structures.
+--> ✅ Conclusion: GF13/4EYD and GF13/3I3Z have the same structures.
 
 -- [ Comparison between GF13/4EYD and GF13/2MVC] --
-GF13/4EYD and GF13/2MVC have the same numbers of atoms!
-GF13/4EYD and GF13/2MVC have the same total charges!
+GF13/4EYD and GF13/2MVC have the same numbers of atoms (850)!
+GF13/4EYD and GF13/2MVC have the same total charges (-1.0)!
 GF13/4EYD and GF13/2MVC do not have the same atom types.
-Below is a list of residues that had different atom types:
-GF13/4EYD: <Residue HIP, 26> / GF13/2MVC: <Residue HIE, 26>
-GF13/4EYD: <Residue HIE, 31> / GF13/2MVC: <Residue HIP, 31>
---> Conclusion: GF13/4EYD and GF13/2MVC have different structures!
+    Below is a list of residues that had different atom types:
+    GF13/4EYD: <Residue HIP, 26> / GF13/2MVC: <Residue HIE, 26>
+    GF13/4EYD: <Residue HIE, 31> / GF13/2MVC: <Residue HIP, 31>
+--> ❎ Conclusion: GF13/4EYD and GF13/2MVC have different structures!
 
