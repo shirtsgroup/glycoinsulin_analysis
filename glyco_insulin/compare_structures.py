@@ -84,7 +84,7 @@ if __name__ == "__main__":
     string = '\nSection 2: Comparison between insulin glycoforms'
     print(string)
     print('=' * len(string))
-    for i in range(4, 14):
+    for i in range(2, 14):
         gro_1 = f'4EYD_glycoforms/glycoform_{i}_ACS/Glycam_outputs/structure_GMX.gro'
         top_1 = f'4EYD_glycoforms/glycoform_{i}_ACS/Glycam_outputs/structure_GMX.top'
         for j in range(1, 5):
