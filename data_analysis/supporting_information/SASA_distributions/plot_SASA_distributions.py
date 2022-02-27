@@ -55,7 +55,7 @@ if __name__ == "__main__":
                 ax = sns.kdeplot(sasa_list, label=f'GF {j}', common_norm=False)
                 # ax = sns.histplot(sasa_list, bins=100, label=f'GF {j}', stat='probability', color=colors[j - 1], alpha=1)
         plt.xlabel(x_labels[i])
-        plt.ylabel('Probability')
+        plt.ylabel('Probability density')
 
         plt.legend()
         plt.grid()
@@ -92,7 +92,7 @@ if __name__ == "__main__":
             else:
                 ax = sns.kdeplot(sasa_list, label=f'GF {j}', common_norm=False)
         plt.xlabel(x_labels[i])
-        plt.ylabel('Probability')
+        plt.ylabel('Probability density')
 
         plt.legend()
         plt.grid()

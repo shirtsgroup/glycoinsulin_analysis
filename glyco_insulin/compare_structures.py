@@ -81,9 +81,7 @@ def compare_structures(gro_1, gro_2, top_1, top_2, name_1, name_2):
                     idx_1, idx_2 = res_ref[i].atoms[j].ix, res[i].atoms[j].ix
                     if res_ref[i].resname == res[i].resname: 
                         if np.isclose(q_ref[idx_1], q[idx_2], rtol=1e-05, atol=1e-08) is False:
-                            print('Noooo')
-                            print(q_ref[idx_1], q[idx_2])
-                            print(res_ref[i].atoms[j], res[i].atoms[j])
+                            print('    Atoms with the same atom and residue types had different charges!')
 
         if score == len(s_ref) and res_diff is None:
             print(f'{name_1} and {name_2} have exactly the same atom type for each atom.')
@@ -101,18 +99,18 @@ if __name__ == "__main__":
     string = 'Section 1: Comparison of the wildtype structures'
     print(string)
     print('=' * len(string))
-    gro_1 = '../wildtype_insulin/4EYD/Hpp_results/4eyd.gro'
-    top_1 = '../wildtype_insulin/4EYD/Hpp_results/4eyd.top'
+    gro_1 = '../../wildtype_insulin/4EYD/Hpp_results/4eyd.gro'
+    top_1 = '../../wildtype_insulin/4EYD/Hpp_results/4eyd.top'
     for i in range(1, 5):
-        gro_2 = f'../wildtype_insulin/{WTs[i]}/Hpp_results/{WTs[i].lower()}.gro'
-        top_2 = f'../wildtype_insulin/{WTs[i]}/Hpp_results/{WTs[i].lower()}.top'
+        gro_2 = f'../../wildtype_insulin/{WTs[i]}/Hpp_results/{WTs[i].lower()}.gro'
+        top_2 = f'../../wildtype_insulin/{WTs[i]}/Hpp_results/{WTs[i].lower()}.top'
         compare_structures(gro_1, gro_2, top_1, top_2, 'WT/4EYD', f'WT/{WTs[i]}')
 
     # Section 2: Compare the insulin glycoforms
     string = '\nSection 2: Comparison between insulin glycoforms'
     print(string)
     print('=' * len(string))
-    for i in range(2, 14):   # Analog 14 to 18
+    for i in range(2, 14):
         gro_1 = f'4EYD_glycoforms/glycoform_{i}_ACS/Glycam_outputs/structure_GMX.gro'
         top_1 = f'4EYD_glycoforms/glycoform_{i}_ACS/Glycam_outputs/structure_GMX.top'
         for j in range(1, 5):
