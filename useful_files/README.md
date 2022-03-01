@@ -1,5 +1,5 @@
-# Protocol for preparing input files for MD simulations
-Below we summarize the protocol we used to prepare the input files for the MD simulations of insulin wildtypes and glycoforms. Note that typically the first two steps are finished locally, while the remaining steps are carried out on an HPC after file transferring.  
+# Useful files for preparing input files of MD simulations
+Here we store useful files for preparing input files for MD simulations of the insulin glycoforms. Below we summarize the protocol we used to prepare the input files for the MD simulations of insulin wildtypes and glycoforms. Note that typically the first two steps are finished locally, while the remaining steps are carried out on an HPC after file transferring.  
 - **Step 1**: Parameterize the structure of the insulin wildtype of interest or the wildtype which the glycoform of interest is based on using H++.
 - **Step 2**: Convert the file formats
   - *For insulin wildtype simulations*:
@@ -18,10 +18,8 @@ Below we summarize the protocol we used to prepare the input files for the MD si
   - `prep.sh`
 - **Step 3**: On Bridges-2, launch an interactive node using: `interact -N 1 --ntasks-per-node=64` and then execute `bash prep.sh`, answer all the prompts to launch an MD simulation, and submit the job. 
 
-For more information, please visit the relevant [HackMD note](https://hackmd.io/@WeiTseHsu/glycoinsulin_preparation).
+For more details about the preparation workflow, please refer to our paper. 
 
-
-
-
-
-
+Additionally, below are the descriptions of the files not mentioned in the workflow above. 
+- `archived` folder: A folder that contains `prep_dir.sh` and `prep_md.sh`, the predecessor of `prep.sh`.
+- `adjust_pdb_format.py`: 
