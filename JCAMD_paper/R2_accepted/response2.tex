@@ -1,0 +1,105 @@
+% eLife derivative manuscript template
+%%% PREAMBLE 
+\documentclass[sn-vancouver]{sn-jnl}
+
+\usepackage{bm}
+%\usepackage{caption}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{soul}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{academicons}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\newcommand{\orcid}[1]{\href{https://orcid.org/#1}{\textcolor{HTML}{A6CE39}{\aiOrcid}}}
+
+\graphicspath{ {./Figures/} }
+
+\usepackage{tabularx,booktabs}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\setlength{\marginparwidth}{2cm}
+\usepackage{indentfirst}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ARTICLE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title[Response to reviewers' comments]{Response to reviewers' comments on "Identifying signatures of proteolytic stability and monomeric propensity in \emph{O}-glycosylated insulin using molecular simulation"}
+
+\author[1]{Wei-Tse Hsu}
+\author[2]{Dominique A. Ramirez}
+\author[3]{Tarek Sammakia}
+\author*[4]{Zhongping Tan}\email{zhongping.tan@imm.pumc.edu.cn}
+\author*[1]{Michael R. Shirts}\email{michael.shirts@colorado.edu}
+
+\affil[1]{Department of Chemical \& Biological Engineering, University of Colorado Boulder, Boulder, CO, USA 80309}
+\affil[2]{Department of Biochemistry, University of Colorado Boulder, Boulder, CO, USA 80309}
+\affil[3]{Department of Chemistry, University of Colorado Boulder, Boulder, CO, USA 80309}
+\affil[4]{Institute of Materia Medica, Chinese Academy of Medical Sciences, Peking Union Medical College, Beijing, 100050, China}
+
+%%\corr{michael.shirts@colorado.edu}{MRS}
+%%\corr{zhongping.tan@imm.pumc.edu.cn}{ZT}
+
+%\contrib{\small Submitted in the Journal of Computer-Aided Molecular Design.}
+
+\maketitle
+
+%================================
+% Response to reviewers' comments
+%================================
+\section*{Comments from Reviewer 1}
+\textit{\textbf{Comment}: Overall the revision is fine. The authors should consider asking a native English speaker to review the text closely since often the language is awkward.} 
+\newline
+\indent
+{\bf Our response}: We have carefully read over the article to improve the language. Thanks for the suggestion!
+\newline
+\newline
+\indent
+\textit{\textbf{Comment}: Figure captions to Figures 5-8 should make clear precisely what quantity each set of error bars are showing.  From the response to reviewers' comments, I think they must be standard deviations from the bootstrapping procedure based on the reviewer response, but this is not actually stated in the paper as far as I can tell. } 
+\newline
+\indent
+{\bf Our response}: We made the following changes to the figures.
+\begin{enumerate}[label={(\arabic*)}, leftmargin=5.0em]
+    \item Figure 5 and Figure 6: We added the following statement to the caption: Uncertainty in Kendall's tau correlation coefficient ($\tau$) was calculated as described in Section 2.3. The error bars of the $\alpha$-chymotrypsin half-life were the standard deviations of three experimental repetitions, while the error bars of the computational metrics were calculated as the standard deviations over simulations from the five different wildtype models.
+    \item Figure 7: We added the following statement to the caption: The error bars of the existence percentage were calculated as the standard deviations across the results based on the 5 different wildtype models.
+    \item Figure 8:We added the following statement to the caption: All five models for each glycoform were averaged for occlusion proportions, with their error bars estimated as the standard deviations of the results based on the 5 different wildtype models.
+\end{enumerate} 
+\par Note that the error bars in Figures 5--8 are not from bootstrapping but simply the standard deviation of the results based on the 5 different wildtype models. Only the uncertainty of the correlation coefficients were estimated using bootstrapping.
+\newline
+\newline
+\indent
+\textit{\textbf{Comment}: On p. 9, "Figures S4" should be "Figure S3"}
+\newline
+\indent
+\textbf{Our response}: Fixed!
+\newline 
+\newline 
+\indent
+\textit{\textbf{Comment}: On p. 10, "Figures S5 and S6" should be "Figures S4 and S5"}
+\newline
+\indent
+{\bf Our response}: We have fixed this as well. Thanks for catching it!
+\newline 
+\newline
+\indent
+\textit{\textbf{Comment}:
+I couldn't find the Ramachandran plots in the Github repository mentioned on p. 10.  The authors should just include them in the SI.}
+\newline
+\indent 
+{\bf Our response}: The 20 Ramachandran plots now have been included in the supporting information, from Figure S8 to Figure S27.
+\newline
+\newline 
+\indent
+\textit{\textbf{Comment}:
+On p. 20, there is a LaTeX error at the end of the first paragraph ($>$ outside \$).}
+\newline
+\indent 
+{\bf Our response}: 
+Fixed!
+\end{document}
