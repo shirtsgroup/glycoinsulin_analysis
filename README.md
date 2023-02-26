@@ -1,5 +1,7 @@
 Glycoinsulin_project
 =======================
+[//]: # (Badges)
+[![DOI](https://img.shields.io/badge/DOI-10.1007%2Fs10822--022--00453--6-success.svg)]( https://doi.org/10.1007/s10822-022-00453-6)
 
 ## Description
 This repository maintains important files/scripts for running or analyzing MD simulations of different insulin wild-type models and their glycovariants.
