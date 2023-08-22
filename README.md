@@ -1,4 +1,4 @@
-Glycoinsulin_project
+glycoinsulin_analysis
 =======================
 [//]: # (Badges)
 [![DOI](https://img.shields.io/badge/DOI-10.1007%2Fs10822--022--00453--6-success.svg)]( https://doi.org/10.1007/s10822-022-00453-6)
@@ -6,7 +6,7 @@ Glycoinsulin_project
 ## Description
 This repository maintains important files/scripts for running or analyzing MD simulations of different insulin wild-type models and their glycovariants.
 
-The paper of the project is currently hosted on ChemRxiv, which is titled as [Identifying signatures of proteolytic stability and monomeric propensity in O-glycosylated insulin using molecular simulation](https://chemrxiv.org/engage/chemrxiv/article-details/617bf80e7a002138383ebdc6).
+The paper of the project is published in the Journal of Computer-Aided Molecular Design (JCAMD), titled as [Identifying signatures of proteolytic stability and monomeric propensity in O-glycosylated insulin using molecular simulation](https://link.springer.com/article/10.1007/s10822-022-00453-6).
 
 There are the following directories in this repository. Note that we don't store simulation outputs due to the huge file sizes. For more details about the files in each folder, please refer to the README file in each folder. 
 - `JCAMD_paper`: LaTex-relevant files for different versions of the paper submitted to the Journal of Computer-Aided Molecule Design (JCAMD). 
